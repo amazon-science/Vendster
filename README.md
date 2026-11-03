@@ -137,7 +137,7 @@ left unchanged when they are absent), a refresh of the three figures
 **To confirm the paper's numbers without rerunning anything on Bedrock:**
 
 ```bash
-uv run python scripts/paper_stats.py --verify overleaf/main.tex
+uv run python scripts/paper_stats.py --verify overleaf/main.tex --out /tmp/vendster_audit
 ```
 
 recomputes every cell of the five paper tables from the archived episodes and diffs them

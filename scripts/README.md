@@ -11,7 +11,7 @@ documents from them. Everything else is named by function (`eval_quality_*` scor
 on M5 with no episodes involved; `check_`/`compare_`/`show_` are utilities).
 
 **Reproduce the whole paper in one command:** `bash scripts/reproduce.sh`. **Confirm the paper's
-numbers without a rerun:** `uv run python scripts/paper_stats.py --verify overleaf/main.tex`
+numbers without a rerun:** `uv run python scripts/paper_stats.py --verify overleaf/main.tex --out /tmp/vendster_audit`
 recomputes every cell of the five paper tables and diffs them against the manuscript at displayed
 precision, exiting non-zero on any mismatch (currently **359/359 cells match**).
 

@@ -24,7 +24,7 @@ and exits non-zero on any mismatch. This is the reviewer one-liner: confirm ever
 rerunning anything on Bedrock.
 
     uv run python scripts/paper_stats.py --out experiments/audit
-    uv run python scripts/paper_stats.py --verify overleaf/main.tex   # check the paper matches the scripts
+    uv run python scripts/paper_stats.py --verify overleaf/main.tex --out /tmp/vendster_audit   # check the paper (leaves experiments/ untouched)
 """
 
 import argparse
