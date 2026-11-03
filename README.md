@@ -211,13 +211,10 @@ This repository is licensed under CC BY-NC 4.0. The released experiments do not 
 If you use Vendster in your research, please cite our [FMTS](https://fmts-workshop.github.io/) @ [NeurIPS 2026](https://neurips.cc/virtual/2026/loc/sydney/workshop/137514) [paper](https://arxiv.org/abs/2610.38292):
 
 ```
-@misc{polpanumas2026vendsterevaluationarenainvestigate,
-      title={Vendster: An Evaluation Arena to Investigate How Forecasting Tool Quality Affects LLM Agent Behaviors in Buyer-Vendor Negotiation}, 
-      author={Charin Polpanumas},
-      year={2026},
-      eprint={2610.38292},
-      archivePrefix={arXiv},
-      primaryClass={cs.GT},
-      url={https://arxiv.org/abs/2610.38292}, 
+@article{polpanumas2026vendster,
+  title={Vendster: An Evaluation Arena to Investigate How Forecasting Tool Quality Affects LLM Agent Behaviors in Buyer-Vendor Negotiation},
+  author={Polpanumas, Charin},
+  journal={arXiv preprint arXiv:2610.38292},
+  year={2026}
 }
 ```
