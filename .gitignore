@@ -1,0 +1,102 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[codz]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py.cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environments
+.env
+.envrc
+.venv
+env/
+venv/
+ENV/
+
+# UV
+# We keep uv.lock commented out by default to encourage reproducibility 
+# (Committing uv.lock ensures everyone uses the exact same versions)
+# uv.lock
+
+# IDEs
+.vscode/
+.idea/
+.spyderproject
+.spyproject
+
+# Ruff / Linting
+.ruff_cache/
+.mypy_cache/
+
+# Streamlit/Marimo
+.streamlit/secrets.toml
+marimo/_static/
+marimo/_lsp/
+__marimo__/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# large data cache
+data/m5_cache/
+
+# log
+log/
+
+# LaTeX build artifacts (the paper source lives in overleaf/; build output does not)
+overleaf/*.pdf
+overleaf/*.aux
+overleaf/*.log
+overleaf/*.out
+overleaf/*.bbl
+overleaf/*.blg
+overleaf/*.xdv
+overleaf/*.synctex.gz
+
+# local agent tooling
+.claude/
+

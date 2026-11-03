@@ -1,0 +1,2017 @@
+{
+  "n_sets": 16,
+  "aggregate": {
+    "no_forecast": {
+      "mean_attainment": 0.21750000000000003,
+      "sd_across_sets": 0.059947894041408996,
+      "n_sets": 16
+    },
+    "seasonal_naive": {
+      "mean_attainment": 0.3125,
+      "sd_across_sets": 0.09404121436902015,
+      "n_sets": 16
+    },
+    "auto_ets": {
+      "mean_attainment": 0.31000000000000005,
+      "sd_across_sets": 0.11618950038622251,
+      "n_sets": 16
+    },
+    "auto_theta": {
+      "mean_attainment": 0.29500000000000004,
+      "sd_across_sets": 0.14203872711341792,
+      "n_sets": 16
+    },
+    "lightgbm_global": {
+      "mean_attainment": 0.29500000000000004,
+      "sd_across_sets": 0.07599342076785333,
+      "n_sets": 16
+    },
+    "chronos2": {
+      "mean_attainment": 0.225,
+      "sd_across_sets": 0.09260129588726068,
+      "n_sets": 16
+    },
+    "chronos_bolt": {
+      "mean_attainment": 0.295,
+      "sd_across_sets": 0.09785192895390464,
+      "n_sets": 16
+    },
+    "timesfm25": {
+      "mean_attainment": 0.2825,
+      "sd_across_sets": 0.09324028099485758,
+      "n_sets": 16
+    },
+    "nf_nhits": {
+      "mean_attainment": 0.3175,
+      "sd_across_sets": 0.0854034542626936,
+      "n_sets": 16
+    },
+    "nf_patchtst": {
+      "mean_attainment": 0.3175,
+      "sd_across_sets": 0.0932402809948576,
+      "n_sets": 16
+    },
+    "nf_deepar": {
+      "mean_attainment": 0.2925,
+      "sd_across_sets": 0.10268276388956424,
+      "n_sets": 16
+    },
+    "bias_m20": {
+      "mean_attainment": 0.3125,
+      "sd_across_sets": 0.10413332799829264,
+      "n_sets": 16
+    },
+    "bias_m15": {
+      "mean_attainment": 0.275,
+      "sd_across_sets": 0.10851267207105353,
+      "n_sets": 16
+    },
+    "bias_m10": {
+      "mean_attainment": 0.29000000000000004,
+      "sd_across_sets": 0.10246950765959598,
+      "n_sets": 16
+    },
+    "bias_m05": {
+      "mean_attainment": 0.31999999999999995,
+      "sd_across_sets": 0.11575836902790225,
+      "n_sets": 16
+    },
+    "bias_p05": {
+      "mean_attainment": 0.30999999999999994,
+      "sd_across_sets": 0.09110433579144299,
+      "n_sets": 16
+    },
+    "bias_p10": {
+      "mean_attainment": 0.3175,
+      "sd_across_sets": 0.08422440263961507,
+      "n_sets": 16
+    },
+    "bias_p15": {
+      "mean_attainment": 0.29500000000000004,
+      "sd_across_sets": 0.09367496997597596,
+      "n_sets": 16
+    },
+    "bias_p20": {
+      "mean_attainment": 0.29500000000000004,
+      "sd_across_sets": 0.12479983974348685,
+      "n_sets": 16
+    },
+    "unbiased": {
+      "mean_attainment": 0.345,
+      "sd_across_sets": 0.06763874629234341,
+      "n_sets": 16
+    },
+    "width_v025": {
+      "mean_attainment": 0.3175,
+      "sd_across_sets": 0.10145811943851513,
+      "n_sets": 16
+    },
+    "width_v050": {
+      "mean_attainment": 0.30000000000000004,
+      "sd_across_sets": 0.06928203230275509,
+      "n_sets": 16
+    },
+    "width_v075": {
+      "mean_attainment": 0.25749999999999995,
+      "sd_across_sets": 0.10580051984749414,
+      "n_sets": 16
+    },
+    "width_v150": {
+      "mean_attainment": 0.3125,
+      "sd_across_sets": 0.1012114123999858,
+      "n_sets": 16
+    },
+    "width_v200": {
+      "mean_attainment": 0.2975,
+      "sd_across_sets": 0.09588404455382554,
+      "n_sets": 16
+    },
+    "width_v300": {
+      "mean_attainment": 0.2975,
+      "sd_across_sets": 0.13112494041943357,
+      "n_sets": 16
+    }
+  },
+  "per_set": [
+    {
+      "basket": [
+        "FOODS_3_252_CA_4",
+        "FOODS_3_473_TX_2",
+        "FOODS_3_668_CA_3",
+        "FOODS_3_080_CA_4",
+        "FOODS_3_694_TX_2"
+      ],
+      "target": 1152.00785194409,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "seasonal_naive": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "auto_ets": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "auto_theta": {
+          "attainment": 0.08,
+          "n": 25
+        },
+        "lightgbm_global": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "chronos2": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "chronos_bolt": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "timesfm25": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "nf_nhits": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "nf_patchtst": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "nf_deepar": {
+          "attainment": 0.08,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "width_v025": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "width_v050": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v075": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "width_v150": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "width_v200": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "width_v300": {
+          "attainment": 0.12,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_668_CA_2",
+        "HOUSEHOLD_1_247_TX_2",
+        "FOODS_3_080_WI_3",
+        "FOODS_3_080_CA_3",
+        "FOODS_3_080_CA_1"
+      ],
+      "target": 913.4124962662057,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "seasonal_naive": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "auto_ets": {
+          "attainment": 0.52,
+          "n": 25
+        },
+        "auto_theta": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "lightgbm_global": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "chronos2": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "chronos_bolt": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "timesfm25": {
+          "attainment": 0.48,
+          "n": 25
+        },
+        "nf_nhits": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "nf_patchtst": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "nf_deepar": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v025": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "width_v050": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v075": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "width_v150": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "width_v200": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "width_v300": {
+          "attainment": 0.44,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_473_TX_3",
+        "FOODS_3_389_WI_3",
+        "FOODS_3_495_TX_2",
+        "HOUSEHOLD_1_247_TX_2",
+        "FOODS_3_252_TX_2"
+      ],
+      "target": 1551.008467953846,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "seasonal_naive": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "auto_ets": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "auto_theta": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "lightgbm_global": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "chronos2": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "chronos_bolt": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "timesfm25": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "nf_nhits": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "nf_patchtst": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "nf_deepar": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "width_v025": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "width_v050": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "width_v075": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "width_v150": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "width_v200": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "width_v300": {
+          "attainment": 0.28,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_042_TX_1",
+        "FOODS_3_042_WI_3",
+        "FOODS_3_473_TX_1",
+        "FOODS_3_377_CA_4",
+        "FOODS_2_347_CA_3"
+      ],
+      "target": 858.5604645195543,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "seasonal_naive": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "auto_ets": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "auto_theta": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "lightgbm_global": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "chronos2": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "chronos_bolt": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "timesfm25": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "nf_nhits": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "nf_patchtst": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "nf_deepar": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.48,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v025": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "width_v050": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v075": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "width_v150": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "width_v200": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "width_v300": {
+          "attainment": 0.28,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_080_WI_1",
+        "FOODS_3_377_TX_1",
+        "FOODS_3_252_TX_2",
+        "FOODS_3_534_CA_1",
+        "FOODS_3_080_TX_2"
+      ],
+      "target": 2109.879282531637,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "seasonal_naive": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "auto_ets": {
+          "attainment": 0.08,
+          "n": 25
+        },
+        "auto_theta": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "lightgbm_global": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "chronos2": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "chronos_bolt": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "timesfm25": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "nf_nhits": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "nf_patchtst": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "nf_deepar": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.48,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "width_v025": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "width_v050": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "width_v075": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v150": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "width_v200": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "width_v300": {
+          "attainment": 0.28,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_756_WI_3",
+        "FOODS_3_042_TX_1",
+        "FOODS_3_756_CA_4",
+        "FOODS_3_407_CA_1",
+        "HOUSEHOLD_1_516_CA_3"
+      ],
+      "target": 755.5812533735208,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "seasonal_naive": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "auto_ets": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "auto_theta": {
+          "attainment": 0.52,
+          "n": 25
+        },
+        "lightgbm_global": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "chronos2": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "chronos_bolt": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "timesfm25": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "nf_nhits": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "nf_patchtst": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "nf_deepar": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v025": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "width_v050": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "width_v075": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "width_v150": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "width_v200": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "width_v300": {
+          "attainment": 0.28,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_252_CA_3",
+        "FOODS_3_586_TX_1",
+        "FOODS_3_226_WI_3",
+        "FOODS_3_407_CA_3",
+        "FOODS_1_085_CA_2"
+      ],
+      "target": 2766.2016924323902,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "seasonal_naive": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "auto_ets": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "auto_theta": {
+          "attainment": 0.6,
+          "n": 25
+        },
+        "lightgbm_global": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "chronos2": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "chronos_bolt": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "timesfm25": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "nf_nhits": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "nf_patchtst": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "nf_deepar": {
+          "attainment": 0.48,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "width_v025": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "width_v050": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v075": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "width_v150": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "width_v200": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "width_v300": {
+          "attainment": 0.2,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_495_TX_2",
+        "FOODS_3_473_TX_2",
+        "FOODS_3_127_CA_3",
+        "FOODS_3_756_CA_4",
+        "FOODS_3_473_WI_3"
+      ],
+      "target": 956.3109098147922,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "seasonal_naive": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "auto_ets": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "auto_theta": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "lightgbm_global": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "chronos2": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "chronos_bolt": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "timesfm25": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "nf_nhits": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "nf_patchtst": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "nf_deepar": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.48,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.48,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "width_v025": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v050": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "width_v075": {
+          "attainment": 0.52,
+          "n": 25
+        },
+        "width_v150": {
+          "attainment": 0.56,
+          "n": 25
+        },
+        "width_v200": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "width_v300": {
+          "attainment": 0.36,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_473_CA_1",
+        "FOODS_3_458_WI_2",
+        "FOODS_3_228_CA_3",
+        "HOUSEHOLD_1_118_TX_3",
+        "FOODS_3_458_WI_3"
+      ],
+      "target": 992.4388417550219,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "seasonal_naive": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "auto_ets": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "auto_theta": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "lightgbm_global": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "chronos2": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "chronos_bolt": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "timesfm25": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "nf_nhits": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "nf_patchtst": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "nf_deepar": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.52,
+          "n": 25
+        },
+        "width_v025": {
+          "attainment": 0.48,
+          "n": 25
+        },
+        "width_v050": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v075": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "width_v150": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "width_v200": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "width_v300": {
+          "attainment": 0.44,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_473_CA_3",
+        "FOODS_3_407_CA_3",
+        "FOODS_3_586_WI_1",
+        "FOODS_3_226_TX_3",
+        "FOODS_3_228_CA_2"
+      ],
+      "target": 1044.8521235101668,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "seasonal_naive": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "auto_ets": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "auto_theta": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "lightgbm_global": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "chronos2": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "chronos_bolt": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "timesfm25": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "nf_nhits": {
+          "attainment": 0.48,
+          "n": 25
+        },
+        "nf_patchtst": {
+          "attainment": 0.52,
+          "n": 25
+        },
+        "nf_deepar": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.48,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "width_v025": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "width_v050": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "width_v075": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "width_v150": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "width_v200": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "width_v300": {
+          "attainment": 0.44,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_477_TX_3",
+        "FOODS_3_495_TX_2",
+        "HOUSEHOLD_1_118_TX_2",
+        "FOODS_3_714_CA_3",
+        "FOODS_3_694_WI_2"
+      ],
+      "target": 1328.4089720651843,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "seasonal_naive": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "auto_ets": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "auto_theta": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "lightgbm_global": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "chronos2": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "chronos_bolt": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "timesfm25": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "nf_nhits": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "nf_patchtst": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "nf_deepar": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.52,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v025": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v050": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "width_v075": {
+          "attainment": 0.08,
+          "n": 25
+        },
+        "width_v150": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "width_v200": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "width_v300": {
+          "attainment": 0.36,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "HOUSEHOLD_1_251_CA_3",
+        "FOODS_3_714_TX_3",
+        "FOODS_3_694_TX_2",
+        "FOODS_3_668_CA_4",
+        "HOUSEHOLD_1_198_CA_3"
+      ],
+      "target": 951.6190381648722,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "seasonal_naive": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "auto_ets": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "auto_theta": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "lightgbm_global": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "chronos2": {
+          "attainment": 0.08,
+          "n": 25
+        },
+        "chronos_bolt": {
+          "attainment": 0.48,
+          "n": 25
+        },
+        "timesfm25": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "nf_nhits": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "nf_patchtst": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "nf_deepar": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "width_v025": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v050": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v075": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "width_v150": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "width_v200": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "width_v300": {
+          "attainment": 0.04,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_555_CA_2",
+        "FOODS_3_586_CA_4",
+        "HOUSEHOLD_1_251_CA_3",
+        "FOODS_3_226_WI_2",
+        "HOBBIES_1_254_CA_3"
+      ],
+      "target": 1458.306214679643,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.08,
+          "n": 25
+        },
+        "seasonal_naive": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "auto_ets": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "auto_theta": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "lightgbm_global": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "chronos2": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "chronos_bolt": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "timesfm25": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "nf_nhits": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "nf_patchtst": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "nf_deepar": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.08,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "width_v025": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "width_v050": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "width_v075": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "width_v150": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "width_v200": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "width_v300": {
+          "attainment": 0.16,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_586_CA_4",
+        "FOODS_3_694_TX_2",
+        "HOUSEHOLD_1_198_WI_1",
+        "FOODS_3_252_TX_3",
+        "FOODS_3_407_CA_3"
+      ],
+      "target": 1563.6109986200313,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "seasonal_naive": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "auto_ets": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "auto_theta": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "lightgbm_global": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "chronos2": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "chronos_bolt": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "timesfm25": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "nf_nhits": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "nf_patchtst": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "nf_deepar": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.08,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v025": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "width_v050": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "width_v075": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v150": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "width_v200": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v300": {
+          "attainment": 0.2,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_586_CA_4",
+        "FOODS_3_252_TX_1",
+        "HOUSEHOLD_1_251_CA_3",
+        "FOODS_3_534_CA_1",
+        "FOODS_3_458_WI_3"
+      ],
+      "target": 1421.0117806116114,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "seasonal_naive": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "auto_ets": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "auto_theta": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "lightgbm_global": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "chronos2": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "chronos_bolt": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "timesfm25": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "nf_nhits": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "nf_patchtst": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "nf_deepar": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.6,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "width_v025": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "width_v050": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "width_v075": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "width_v150": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v200": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "width_v300": {
+          "attainment": 0.32,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_694_WI_1",
+        "FOODS_3_668_TX_2",
+        "FOODS_3_377_CA_3",
+        "HOUSEHOLD_1_251_CA_3",
+        "HOUSEHOLD_1_198_CA_3"
+      ],
+      "target": 814.8537348440981,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "seasonal_naive": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "auto_ets": {
+          "attainment": 0.56,
+          "n": 25
+        },
+        "auto_theta": {
+          "attainment": 0.48,
+          "n": 25
+        },
+        "lightgbm_global": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "chronos2": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "chronos_bolt": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "timesfm25": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "nf_nhits": {
+          "attainment": 0.48,
+          "n": 25
+        },
+        "nf_patchtst": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "nf_deepar": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.52,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.6,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.48,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.48,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "width_v025": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "width_v050": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "width_v075": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "width_v150": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "width_v200": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "width_v300": {
+          "attainment": 0.56,
+          "n": 25
+        }
+      }
+    }
+  ],
+  "checkpoint": {
+    "baseline_attainment": 0.21750000000000003,
+    "bracket_spread": 0.12749999999999995,
+    "passed": false,
+    "band": [
+      0.3,
+      0.7
+    ],
+    "min_spread": 0.25
+  },
+  "manifest": {
+    "git_sha": "cfc2dcabc9bb1f62df21b2d0daaf2056a416c5bc",
+    "timestamp_utc": "2026-09-02T03:06:46.482108+00:00",
+    "python": "3.12.13",
+    "model": "deepseek.v3.2",
+    "note": "LLM episodes are NOT bit-reproducible (Bedrock has no seed); the reproducibility contract is the frozen target + seeded DGP + archived transcripts.",
+    "kind": "paired_experiment",
+    "seed": 1,
+    "n_sets": 16,
+    "episodes_per_condition": 25,
+    "target_mode": "analytic",
+    "target_percentile": 80.0,
+    "ref_draws": 2000
+  }
+}

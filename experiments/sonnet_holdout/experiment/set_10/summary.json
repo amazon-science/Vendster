@@ -1,0 +1,109 @@
+{
+  "target": 1328.4089720651843,
+  "conditions": {
+    "no_forecast": {
+      "attainment": 0.16,
+      "n": 25
+    },
+    "seasonal_naive": {
+      "attainment": 0.24,
+      "n": 25
+    },
+    "auto_ets": {
+      "attainment": 0.4,
+      "n": 25
+    },
+    "auto_theta": {
+      "attainment": 0.28,
+      "n": 25
+    },
+    "lightgbm_global": {
+      "attainment": 0.4,
+      "n": 25
+    },
+    "chronos2": {
+      "attainment": 0.36,
+      "n": 25
+    },
+    "chronos_bolt": {
+      "attainment": 0.32,
+      "n": 25
+    },
+    "timesfm25": {
+      "attainment": 0.28,
+      "n": 25
+    },
+    "nf_nhits": {
+      "attainment": 0.44,
+      "n": 25
+    },
+    "nf_patchtst": {
+      "attainment": 0.48,
+      "n": 25
+    },
+    "nf_deepar": {
+      "attainment": 0.4,
+      "n": 25
+    },
+    "bias_m20": {
+      "attainment": 0.56,
+      "n": 25
+    },
+    "bias_m15": {
+      "attainment": 0.4,
+      "n": 25
+    },
+    "bias_m10": {
+      "attainment": 0.52,
+      "n": 25
+    },
+    "bias_m05": {
+      "attainment": 0.4,
+      "n": 25
+    },
+    "bias_p05": {
+      "attainment": 0.36,
+      "n": 25
+    },
+    "bias_p10": {
+      "attainment": 0.36,
+      "n": 25
+    },
+    "bias_p15": {
+      "attainment": 0.24,
+      "n": 25
+    },
+    "bias_p20": {
+      "attainment": 0.48,
+      "n": 25
+    },
+    "unbiased": {
+      "attainment": 0.4,
+      "n": 25
+    },
+    "width_v025": {
+      "attainment": 0.28,
+      "n": 25
+    },
+    "width_v050": {
+      "attainment": 0.4,
+      "n": 25
+    },
+    "width_v075": {
+      "attainment": 0.16,
+      "n": 25
+    },
+    "width_v150": {
+      "attainment": 0.28,
+      "n": 25
+    },
+    "width_v200": {
+      "attainment": 0.56,
+      "n": 25
+    },
+    "width_v300": {
+      "attainment": 0.4,
+      "n": 25
+    }
+  }
+}

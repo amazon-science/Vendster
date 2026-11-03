@@ -1,0 +1,45 @@
+{
+  "target": 1044.8521235101668,
+  "conditions": {
+    "no_forecast": {
+      "attainment": 0.32,
+      "n": 25
+    },
+    "bias_m20": {
+      "attainment": 0.36,
+      "n": 25
+    },
+    "bias_m15": {
+      "attainment": 0.4,
+      "n": 25
+    },
+    "bias_m10": {
+      "attainment": 0.52,
+      "n": 25
+    },
+    "bias_m05": {
+      "attainment": 0.8,
+      "n": 25
+    },
+    "bias_p05": {
+      "attainment": 0.28,
+      "n": 25
+    },
+    "bias_p10": {
+      "attainment": 0.4,
+      "n": 25
+    },
+    "bias_p15": {
+      "attainment": 0.12,
+      "n": 25
+    },
+    "bias_p20": {
+      "attainment": 0.24,
+      "n": 25
+    },
+    "unbiased": {
+      "attainment": 0.48,
+      "n": 25
+    }
+  }
+}

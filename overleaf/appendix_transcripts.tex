@@ -1,0 +1,837 @@
+\subsection{Example Negotations}
+\label{app:transcript}
+
+Representative episodes drawn verbatim from the archived transcripts, chosen to span models and situations. This is not the full 26x4 grid; the code regenerates any episode's transcript. Each block shows the private context both sides saw followed by the turn-by-turn negotiation.
+
+\subsubsection*{deepseek: No forecast --- baseline negotiation (no demand signal)}
+\noindent\texttt{no\_forecast} (set\_0) --- target \$1,152, AGREEMENT in 8 turns, sales \$940, target met: False.
+{\footnotesize
+\begin{verbatim}
+=== CONTEXT (what each side saw) ===
+--- SHARED ---
+PRODUCTS:
+  FOODS_3_252_CA_4: FOODS $1.48
+  FOODS_3_473_TX_2: FOODS $3.88
+  FOODS_3_668_CA_3: FOODS $1.58
+  FOODS_3_080_CA_4: FOODS $1.58
+  FOODS_3_694_TX_2: FOODS $1.58
+Allowed discounts: 0%, 5%, 10%, 15%, 20%, 25%, 30%
+PAST EVENTS (both agents see units & revenue):
+  Month 1:
+    FOODS_3_252_CA_4 @ 0%: 80 units, $118
+    FOODS_3_473_TX_2 @ 10%: 53 units, $186
+    FOODS_3_668_CA_3 @ 30%: 126 units, $140
+    FOODS_3_080_CA_4 @ 25%: 63 units, $74
+    FOODS_3_694_TX_2 @ 25%: 369 units, $437
+  Month 2:
+    FOODS_3_252_CA_4 @ 30%: 372 units, $385
+    FOODS_3_473_TX_2 @ 0%: 28 units, $109
+    FOODS_3_668_CA_3 @ 25%: 123 units, $146
+    FOODS_3_080_CA_4 @ 5%: 28 units, $42
+    FOODS_3_694_TX_2 @ 30%: 314 units, $348
+  Month 3:
+    FOODS_3_252_CA_4 @ 10%: 151 units, $201
+    FOODS_3_473_TX_2 @ 25%: 93 units, $270
+    FOODS_3_668_CA_3 @ 30%: 161 units, $178
+    FOODS_3_080_CA_4 @ 25%: 133 units, $158
+    FOODS_3_694_TX_2 @ 5%: 140 units, $210
+--- BUYER objective ---
+You are the Buyer. Objective: reach a total SALES target of $1,152 across all products by
+  negotiating discounts. Only you can see the demand forecast. Respond with one JSON
+  action.
+--- VENDOR objective ---
+You are the Vendor. Objective: maximize TOTAL PORTFOLIO PROFIT across all products. You
+  know unit costs/margins (private). Respond with one JSON action.
+--- VENDOR private ---
+YOUR COSTS/MARGINS (Vendor private):
+  FOODS_3_252_CA_4: cost $0.67 of $1.48
+  FOODS_3_473_TX_2: cost $2.72 of $3.88
+  FOODS_3_668_CA_3: cost $0.71 of $1.58
+  FOODS_3_080_CA_4: cost $0.32 of $1.58
+  FOODS_3_694_TX_2: cost $0.32 of $1.58
+=== TRANSCRIPT ===
+[T1] Buyer: PROPOSE FOODS_3_252_CA_4 10%, FOODS_3_473_TX_2 15%, FOODS_3_668_CA_3 25%,
+  FOODS_3_080_CA_4 20%, FOODS_3_694_TX_2 15%
+        "I propose the following discounts for all products to maximize our mutual benefit
+          based on past performance and demand forecasts."
+[T2] Vendor: PROPOSE FOODS_3_252_CA_4 10%, FOODS_3_473_TX_2 10%, FOODS_3_668_CA_3 20%,
+  FOODS_3_080_CA_4 15%, FOODS_3_694_TX_2 10%
+        "I appreciate your proposal, but I need to adjust the discounts to ensure
+          sustainable profitability while still offering competitive rates. Here's my
+          counter-proposal that balances volume growth with margin protection."
+[T3] Buyer: PROPOSE FOODS_3_252_CA_4 15%, FOODS_3_473_TX_2 15%, FOODS_3_668_CA_3 25%,
+  FOODS_3_080_CA_4 20%, FOODS_3_694_TX_2 15%
+        "I understand your need for profitability, but I believe we can find a middle
+          ground that drives higher volume while still protecting your margins. Based on
+          the demand patterns we've seen, here's a revised proposal that increases
+          discounts on high-volume products while keeping others reasonable."
+[T4] Vendor: PROPOSE FOODS_3_252_CA_4 15%, FOODS_3_473_TX_2 10%, FOODS_3_668_CA_3 20%,
+  FOODS_3_080_CA_4 20%, FOODS_3_694_TX_2 10%
+        "I've analyzed the historical performance and my cost structure. While I want to
+          accommodate your volume goals, I must protect margins on key products. Here's a
+          revised offer that provides meaningful discounts while maintaining
+          profitability."
+[T5] Buyer: PROPOSE FOODS_3_252_CA_4 15%, FOODS_3_473_TX_2 10%, FOODS_3_668_CA_3 25%,
+  FOODS_3_080_CA_4 20%, FOODS_3_694_TX_2 15%
+        "I appreciate your revised offer, but I need stronger discounts on
+          FOODS_3_668_CA_3 and FOODS_3_694_TX_2 to meet our volume targets. These products
+          have shown strong elasticity in the past. Here's my counter-proposal that
+          balances your margin concerns with our growth objectives."
+[T6] Vendor: PROPOSE FOODS_3_252_CA_4 15%, FOODS_3_473_TX_2 10%, FOODS_3_668_CA_3 20%,
+  FOODS_3_080_CA_4 20%, FOODS_3_694_TX_2 10%
+        "I understand your need for volume growth, but I must protect margins on key
+          products. FOODS_3_694_TX_2 has very low margins (cost $0.32 vs price $1.58), so
+          I can't offer more than 10% there. However, I can increase FOODS_3_668_CA_3 to
+          20% and keep the others as you proposed. This balances your volume needs with my
+          profitability requirements."
+[T7] Buyer: PROPOSE FOODS_3_252_CA_4 15%, FOODS_3_473_TX_2 10%, FOODS_3_668_CA_3 25%,
+  FOODS_3_080_CA_4 20%, FOODS_3_694_TX_2 10%
+        "I understand your margin constraints on FOODS_3_694_TX_2, but I need stronger
+          discounts on FOODS_3_668_CA_3 to reach our volume targets. Looking at historical
+          data, FOODS_3_668_CA_3 has shown strong elasticity at higher discounts. I'm
+          willing to accept your 10% on FOODS_3_694_TX_2 if you can increase
+          FOODS_3_668_CA_3 to 25% and keep the others as proposed."
+[T8] Vendor: DECISION: ACCEPT
+        "I accept your proposal. This provides reasonable discounts on high-volume
+          products while protecting margins on key items. The 25% discount on
+          FOODS_3_668_CA_3 should drive volume while maintaining profitability, and I
+          appreciate your flexibility on FOODS_3_694_TX_2 given its low margin structure."
+\end{verbatim}
+}
+
+\subsubsection*{opus: Foundation-model forecast (Chronos-2) --- buyer uses the forecast}
+\noindent\texttt{chronos2} (set\_0) --- target \$1,152, AGREEMENT in 4 turns, sales \$1,497, target met: True.
+{\footnotesize
+\begin{verbatim}
+=== CONTEXT (what each side saw) ===
+--- SHARED ---
+PRODUCTS:
+  FOODS_3_252_CA_4: FOODS $1.48
+  FOODS_3_473_TX_2: FOODS $3.88
+  FOODS_3_668_CA_3: FOODS $1.58
+  FOODS_3_080_CA_4: FOODS $1.58
+  FOODS_3_694_TX_2: FOODS $1.58
+Allowed discounts: 0%, 5%, 10%, 15%, 20%, 25%, 30%
+PAST EVENTS (both agents see units & revenue):
+  Month 1:
+    FOODS_3_252_CA_4 @ 10%: 155 units, $207
+    FOODS_3_473_TX_2 @ 0%: 67 units, $258
+    FOODS_3_668_CA_3 @ 25%: 157 units, $187
+    FOODS_3_080_CA_4 @ 25%: 203 units, $241
+    FOODS_3_694_TX_2 @ 0%: 106 units, $167
+  Month 2:
+    FOODS_3_252_CA_4 @ 10%: 141 units, $188
+    FOODS_3_473_TX_2 @ 10%: 68 units, $237
+    FOODS_3_668_CA_3 @ 0%: 87 units, $138
+    FOODS_3_080_CA_4 @ 25%: 148 units, $175
+    FOODS_3_694_TX_2 @ 10%: 92 units, $130
+  Month 3:
+    FOODS_3_252_CA_4 @ 15%: 163 units, $205
+    FOODS_3_473_TX_2 @ 25%: 102 units, $297
+    FOODS_3_668_CA_3 @ 30%: 175 units, $194
+    FOODS_3_080_CA_4 @ 10%: 135 units, $192
+    FOODS_3_694_TX_2 @ 10%: 284 units, $404
+--- BUYER objective ---
+You are the Buyer. Objective: reach a total SALES target of $1,152 across all products by
+  negotiating discounts. Only you can see the demand forecast. Respond with one JSON
+  action.
+--- BUYER private ---
+FORECAST (Buyer only) — predicted month-4 units per discount [80% PI]:
+  FOODS_3_252_CA_4:
+    0%: 120 [92, 150]
+    5%: 138 [105, 171]
+    10%: 158 [121, 197]
+    15%: 184 [140, 229]
+    20%: 215 [164, 268]
+    25%: 255 [194, 317]
+    30%: 305 [233, 379]
+  FOODS_3_473_TX_2:
+    0%: 55 [43, 70]
+    5%: 63 [49, 79]
+    10%: 72 [57, 91]
+    15%: 84 [66, 106]
+    20%: 98 [77, 124]
+    25%: 116 [91, 147]
+    30%: 139 [109, 176]
+  FOODS_3_668_CA_3:
+    0%: 67 [52, 84]
+    5%: 77 [60, 95]
+    10%: 88 [69, 110]
+    15%: 102 [80, 127]
+    20%: 120 [93, 149]
+    25%: 142 [110, 176]
+    30%: 169 [132, 211]
+  FOODS_3_080_CA_4:
+    0%: 78 [63, 96]
+    5%: 90 [72, 110]
+    10%: 103 [83, 126]
+    15%: 120 [96, 146]
+    20%: 140 [112, 171]
+    25%: 166 [133, 203]
+    30%: 198 [159, 243]
+  FOODS_3_694_TX_2:
+    0%: 128 [102, 152]
+    5%: 146 [117, 174]
+    10%: 168 [135, 200]
+    15%: 195 [156, 232]
+    20%: 229 [183, 272]
+    25%: 270 [217, 321]
+    30%: 324 [259, 384]
+FORECAST TRACK RECORD (predicted vs actual, months 1-3):
+  M1 FOODS_3_252_CA_4 @ 10%: pred 133 [100,170] vs actual 155
+  M1 FOODS_3_473_TX_2 @ 0%: pred 55 [43,70] vs actual 67
+  M1 FOODS_3_668_CA_3 @ 25%: pred 139 [108,172] vs actual 157
+  M1 FOODS_3_080_CA_4 @ 25%: pred 149 [119,186] vs actual 203
+  M1 FOODS_3_694_TX_2 @ 0%: pred 110 [84,136] vs actual 106
+  M2 FOODS_3_252_CA_4 @ 10%: pred 127 [95,164] vs actual 141
+  M2 FOODS_3_473_TX_2 @ 10%: pred 69 [53,88] vs actual 68
+  M2 FOODS_3_668_CA_3 @ 0%: pred 68 [52,84] vs actual 87
+  M2 FOODS_3_080_CA_4 @ 25%: pred 155 [123,199] vs actual 148
+  M2 FOODS_3_694_TX_2 @ 10%: pred 141 [107,172] vs actual 92
+  M3 FOODS_3_252_CA_4 @ 15%: pred 157 [117,198] vs actual 163
+  M3 FOODS_3_473_TX_2 @ 25%: pred 119 [92,151] vs actual 102
+  M3 FOODS_3_668_CA_3 @ 30%: pred 148 [111,190] vs actual 175
+  M3 FOODS_3_080_CA_4 @ 10%: pred 100 [79,126] vs actual 135
+  M3 FOODS_3_694_TX_2 @ 10%: pred 153 [120,183] vs actual 284
+--- VENDOR objective ---
+You are the Vendor. Objective: maximize TOTAL PORTFOLIO PROFIT across all products. You
+  know unit costs/margins (private). Respond with one JSON action.
+--- VENDOR private ---
+YOUR COSTS/MARGINS (Vendor private):
+  FOODS_3_252_CA_4: cost $0.67 of $1.48
+  FOODS_3_473_TX_2: cost $2.72 of $3.88
+  FOODS_3_668_CA_3: cost $0.71 of $1.58
+  FOODS_3_080_CA_4: cost $0.32 of $1.58
+  FOODS_3_694_TX_2: cost $0.32 of $1.58
+=== TRANSCRIPT ===
+[T1] Buyer: PROPOSE FOODS_3_252_CA_4 20%, FOODS_3_473_TX_2 15%, FOODS_3_668_CA_3 25%,
+  FOODS_3_080_CA_4 20%, FOODS_3_694_TX_2 20%
+        "For Month 4, I'd like to propose discounts that build on our strong sales
+          momentum from Month 3. We saw great volume growth with deeper discounts,
+          especially on FOODS_3_694_TX_2 which had a breakout month. I'm proposing
+          moderate discounts across the board to keep volumes healthy: 20% on
+          FOODS_3_252_CA_4 (proven volume driver), 15% on FOODS_3_473_TX_2 (our
+          highest-priced item benefits from modest discounts), 25% on FOODS_3_668_CA_3,
+          20% on FOODS_3_080_CA_4, and 20% on FOODS_3_694_TX_2 to sustain its momentum."
+[T2] Vendor: PROPOSE FOODS_3_252_CA_4 15%, FOODS_3_473_TX_2 5%, FOODS_3_668_CA_3 15%,
+  FOODS_3_080_CA_4 15%, FOODS_3_694_TX_2 10%
+        "I appreciate the enthusiasm from Month 3's results! However, I need to be careful
+          with margins. FOODS_3_694_TX_2 had a phenomenal Month 3 at just 10% - that
+          volume surge suggests strong organic demand, not discount-dependency. Let's keep
+          it at 10% to protect that profit engine. FOODS_3_473_TX_2 nearly broke even at
+          25% in Month 3, so I can only go to 5% there. I'm offering 15% on
+          FOODS_3_252_CA_4 (proven sweet spot from Month 3), 15% on FOODS_3_080_CA_4 as a
+          step up from Month 3's 10%, and 15% on FOODS_3_668_CA_3 to balance volume and
+          margin. This keeps volumes healthy while ensuring sustainable profitability for
+          both of us."
+[T3] Buyer: PROPOSE FOODS_3_252_CA_4 20%, FOODS_3_473_TX_2 10%, FOODS_3_668_CA_3 20%,
+  FOODS_3_080_CA_4 20%, FOODS_3_694_TX_2 15%
+        "I appreciate you meeting me partway, but the numbers at your proposed levels
+          leave us short of where we need to be on volume. FOODS_3_694_TX_2 did 284 units
+          at 10% last month — that's nearly double forecast, showing massive organic
+          demand. At 15%, we capture even more of that wave while still giving you strong
+          margins on a $1.58 item. For FOODS_3_473_TX_2, 5% barely moves the needle — 10%
+          is still very conservative on a $3.88 item and gives you $3.49 per unit. I'm
+          proposing 20% on FOODS_3_252_CA_4 and FOODS_3_080_CA_4 where we've seen strong
+          volume elasticity, and 20% on FOODS_3_668_CA_3 as a compromise from my original
+          25%. This balanced approach drives the volume we need while keeping your margins
+          healthy across the portfolio."
+[T4] Vendor: DECISION: ACCEPT
+        "You make a fair case. FOODS_3_473_TX_2 at 10% is much more sustainable than last
+          month's 25%, and I'm comfortable that our high-volume items like
+          FOODS_3_694_TX_2 and FOODS_3_080_CA_4 still carry strong margins at these
+          levels. FOODS_3_668_CA_3 at 20% is a reasonable pullback from Month 3's 30%.
+          I'll accept this package — let's drive strong volumes across the board in Month
+          4."
+\end{verbatim}
+}
+
+\subsubsection*{opus: Over-forecast $\rightarrow$ complacency $\rightarrow$ undershoots the target}
+\noindent\texttt{bias\_p20} (set\_0) --- target \$1,152, AGREEMENT in 4 turns, sales \$898, target met: False.
+{\footnotesize
+\begin{verbatim}
+=== CONTEXT (what each side saw) ===
+--- SHARED ---
+PRODUCTS:
+  FOODS_3_252_CA_4: FOODS $1.48
+  FOODS_3_473_TX_2: FOODS $3.88
+  FOODS_3_668_CA_3: FOODS $1.58
+  FOODS_3_080_CA_4: FOODS $1.58
+  FOODS_3_694_TX_2: FOODS $1.58
+Allowed discounts: 0%, 5%, 10%, 15%, 20%, 25%, 30%
+PAST EVENTS (both agents see units & revenue):
+  Month 1:
+    FOODS_3_252_CA_4 @ 5%: 57 units, $79
+    FOODS_3_473_TX_2 @ 5%: 68 units, $250
+    FOODS_3_668_CA_3 @ 5%: 89 units, $133
+    FOODS_3_080_CA_4 @ 5%: 44 units, $67
+    FOODS_3_694_TX_2 @ 0%: 123 units, $194
+  Month 2:
+    FOODS_3_252_CA_4 @ 30%: 191 units, $198
+    FOODS_3_473_TX_2 @ 10%: 77 units, $269
+    FOODS_3_668_CA_3 @ 25%: 195 units, $231
+    FOODS_3_080_CA_4 @ 5%: 52 units, $78
+    FOODS_3_694_TX_2 @ 10%: 175 units, $249
+  Month 3:
+    FOODS_3_252_CA_4 @ 30%: 250 units, $259
+    FOODS_3_473_TX_2 @ 20%: 75 units, $232
+    FOODS_3_668_CA_3 @ 10%: 93 units, $132
+    FOODS_3_080_CA_4 @ 10%: 131 units, $186
+    FOODS_3_694_TX_2 @ 10%: 230 units, $327
+--- BUYER objective ---
+You are the Buyer. Objective: reach a total SALES target of $1,152 across all products by
+  negotiating discounts. Only you can see the demand forecast. Respond with one JSON
+  action.
+--- BUYER private ---
+FORECAST (Buyer only) — predicted month-4 units per discount [80% PI]:
+  FOODS_3_252_CA_4:
+    0%: 178 [113, 281]
+    5%: 204 [130, 321]
+    10%: 235 [149, 369]
+    15%: 272 [173, 428]
+    20%: 319 [203, 501]
+    25%: 377 [240, 593]
+    30%: 451 [287, 709]
+  FOODS_3_473_TX_2:
+    0%: 82 [60, 112]
+    5%: 94 [68, 128]
+    10%: 108 [79, 147]
+    15%: 125 [91, 171]
+    20%: 146 [107, 200]
+    25%: 173 [126, 236]
+    30%: 207 [151, 283]
+  FOODS_3_668_CA_3:
+    0%: 78 [58, 106]
+    5%: 89 [66, 121]
+    10%: 103 [76, 139]
+    15%: 119 [88, 162]
+    20%: 140 [103, 189]
+    25%: 165 [122, 224]
+    30%: 198 [146, 268]
+  FOODS_3_080_CA_4:
+    0%: 70 [48, 101]
+    5%: 80 [55, 115]
+    10%: 92 [63, 133]
+    15%: 106 [73, 154]
+    20%: 124 [86, 180]
+    25%: 147 [102, 213]
+    30%: 176 [122, 255]
+  FOODS_3_694_TX_2:
+    0%: 134 [99, 182]
+    5%: 154 [113, 208]
+    10%: 177 [131, 239]
+    15%: 205 [151, 277]
+    20%: 240 [177, 325]
+    25%: 284 [210, 384]
+    30%: 340 [251, 460]
+FORECAST TRACK RECORD (predicted vs actual, months 1-3):
+  M1 FOODS_3_252_CA_4 @ 5%: pred 82 [52,130] vs actual 57
+  M1 FOODS_3_473_TX_2 @ 5%: pred 59 [43,80] vs actual 68
+  M1 FOODS_3_668_CA_3 @ 5%: pred 103 [76,140] vs actual 89
+  M1 FOODS_3_080_CA_4 @ 5%: pred 70 [48,101] vs actual 44
+  M1 FOODS_3_694_TX_2 @ 0%: pred 155 [115,210] vs actual 123
+  M2 FOODS_3_252_CA_4 @ 30%: pred 256 [163,403] vs actual 191
+  M2 FOODS_3_473_TX_2 @ 10%: pred 71 [52,97] vs actual 77
+  M2 FOODS_3_668_CA_3 @ 25%: pred 188 [139,255] vs actual 195
+  M2 FOODS_3_080_CA_4 @ 5%: pred 78 [54,113] vs actual 52
+  M2 FOODS_3_694_TX_2 @ 10%: pred 186 [138,252] vs actual 175
+  M3 FOODS_3_252_CA_4 @ 30%: pred 309 [196,486] vs actual 250
+  M3 FOODS_3_473_TX_2 @ 20%: pred 116 [85,158] vs actual 75
+  M3 FOODS_3_668_CA_3 @ 10%: pred 98 [72,133] vs actual 93
+  M3 FOODS_3_080_CA_4 @ 10%: pred 109 [75,158] vs actual 131
+  M3 FOODS_3_694_TX_2 @ 10%: pred 214 [158,289] vs actual 230
+--- VENDOR objective ---
+You are the Vendor. Objective: maximize TOTAL PORTFOLIO PROFIT across all products. You
+  know unit costs/margins (private). Respond with one JSON action.
+--- VENDOR private ---
+YOUR COSTS/MARGINS (Vendor private):
+  FOODS_3_252_CA_4: cost $0.67 of $1.48
+  FOODS_3_473_TX_2: cost $2.72 of $3.88
+  FOODS_3_668_CA_3: cost $0.71 of $1.58
+  FOODS_3_080_CA_4: cost $0.32 of $1.58
+  FOODS_3_694_TX_2: cost $0.32 of $1.58
+=== TRANSCRIPT ===
+[T1] Buyer: PROPOSE FOODS_3_252_CA_4 20%, FOODS_3_473_TX_2 10%, FOODS_3_668_CA_3 15%,
+  FOODS_3_080_CA_4 15%, FOODS_3_694_TX_2 15%
+        "Hi! Looking at our sales trends, I'd like to propose discounts that should drive
+          strong volume for both of us this month. FOODS_3_252_CA_4 has shown great
+          responsiveness to discounts (250 units at 30% last month), so a moderate 20%
+          should keep momentum. The TX products and other CA items would benefit from
+          10-15% discounts to sustain growth. This should generate over $1,200 in revenue
+          — a win-win for volume and margins."
+[T2] Vendor: PROPOSE FOODS_3_252_CA_4 15%, FOODS_3_473_TX_2 5%, FOODS_3_668_CA_3 15%,
+  FOODS_3_080_CA_4 10%, FOODS_3_694_TX_2 10%
+        "Thanks for the thoughtful proposal! I can work with most of this, but I need to
+          protect margins on a couple of key items. FOODS_3_694_TX_2 has been performing
+          excellently at 10% — let's keep that proven formula. I'm happy to offer 10% on
+          FOODS_3_080_CA_4 which drove great results last month, and I can go to 15% on
+          FOODS_3_252_CA_4 to keep momentum there. I'll meet you on FOODS_3_668_CA_3 at
+          15% and FOODS_3_473_TX_2 at 5% since that product has very thin margins for us."
+[T3] Buyer: PROPOSE FOODS_3_252_CA_4 20%, FOODS_3_473_TX_2 5%, FOODS_3_668_CA_3 15%,
+  FOODS_3_080_CA_4 10%, FOODS_3_694_TX_2 15%
+        "I appreciate the movement! The 5% on FOODS_3_473_TX_2 works — that product has
+          thin margins, understood. But I need a bit more on two key volume drivers.
+          FOODS_3_252_CA_4 showed incredible elasticity — 250 units at 30% last month — so
+          20% is a reasonable middle ground that protects your margins while keeping
+          volume strong. And FOODS_3_694_TX_2 jumped from 123 to 230 units with just 10%;
+          at 15% we can push past 200+ again reliably. I'll accept 10% on FOODS_3_080_CA_4
+          and 15% on FOODS_3_668_CA_3 as you proposed. This gives us both strong volume
+          with reasonable margin protection."
+[T4] Vendor: DECISION: ACCEPT
+        "You make a compelling case. The volume data backs up your arguments on
+          FOODS_3_252_CA_4, and I'm comfortable with the rest of the package.
+          FOODS_3_694_TX_2 at 15% is a stretch for me, but the overall deal structure
+          works — strong margins on FOODS_3_080_CA_4 and FOODS_3_473_TX_2 at 5% help
+          balance things out. Let's lock this in and drive some volume this month!"
+\end{verbatim}
+}
+
+\subsubsection*{gpt: Under-forecast $\rightarrow$ aggressive negotiation $\rightarrow$ hits the target}
+\noindent\texttt{bias\_m20} (set\_0) --- target \$1,152, AGREEMENT in 4 turns, sales \$1,277, target met: True.
+{\footnotesize
+\begin{verbatim}
+=== CONTEXT (what each side saw) ===
+--- SHARED ---
+PRODUCTS:
+  FOODS_3_252_CA_4: FOODS $1.48
+  FOODS_3_473_TX_2: FOODS $3.88
+  FOODS_3_668_CA_3: FOODS $1.58
+  FOODS_3_080_CA_4: FOODS $1.58
+  FOODS_3_694_TX_2: FOODS $1.58
+Allowed discounts: 0%, 5%, 10%, 15%, 20%, 25%, 30%
+PAST EVENTS (both agents see units & revenue):
+  Month 1:
+    FOODS_3_252_CA_4 @ 10%: 115 units, $153
+    FOODS_3_473_TX_2 @ 0%: 29 units, $112
+    FOODS_3_668_CA_3 @ 0%: 33 units, $51
+    FOODS_3_080_CA_4 @ 0%: 77 units, $121
+    FOODS_3_694_TX_2 @ 30%: 557 units, $616
+  Month 2:
+    FOODS_3_252_CA_4 @ 30%: 292 units, $303
+    FOODS_3_473_TX_2 @ 5%: 59 units, $218
+    FOODS_3_668_CA_3 @ 0%: 44 units, $69
+    FOODS_3_080_CA_4 @ 30%: 169 units, $187
+    FOODS_3_694_TX_2 @ 5%: 96 units, $143
+  Month 3:
+    FOODS_3_252_CA_4 @ 30%: 216 units, $224
+    FOODS_3_473_TX_2 @ 0%: 53 units, $207
+    FOODS_3_668_CA_3 @ 25%: 104 units, $124
+    FOODS_3_080_CA_4 @ 15%: 51 units, $68
+    FOODS_3_694_TX_2 @ 20%: 114 units, $143
+--- BUYER objective ---
+You are the Buyer. Objective: reach a total SALES target of $1,152 across all products by
+  negotiating discounts. Only you can see the demand forecast. Respond with one JSON
+  action.
+--- BUYER private ---
+FORECAST (Buyer only) — predicted month-4 units per discount [80% PI]:
+  FOODS_3_252_CA_4:
+    0%: 137 [87, 215]
+    5%: 156 [99, 246]
+    10%: 180 [114, 283]
+    15%: 209 [133, 328]
+    20%: 244 [155, 384]
+    25%: 289 [184, 454]
+    30%: 346 [220, 544]
+  FOODS_3_473_TX_2:
+    0%: 51 [37, 69]
+    5%: 58 [42, 79]
+    10%: 67 [49, 91]
+    15%: 77 [57, 106]
+    20%: 91 [66, 124]
+    25%: 107 [78, 147]
+    30%: 128 [94, 175]
+  FOODS_3_668_CA_3:
+    0%: 56 [42, 77]
+    5%: 65 [48, 88]
+    10%: 74 [55, 101]
+    15%: 86 [64, 117]
+    20%: 101 [74, 137]
+    25%: 119 [88, 162]
+    30%: 143 [105, 194]
+  FOODS_3_080_CA_4:
+    0%: 50 [34, 72]
+    5%: 57 [39, 83]
+    10%: 66 [45, 95]
+    15%: 76 [53, 110]
+    20%: 89 [62, 129]
+    25%: 106 [73, 153]
+    30%: 126 [87, 183]
+  FOODS_3_694_TX_2:
+    0%: 104 [77, 141]
+    5%: 119 [88, 161]
+    10%: 137 [101, 185]
+    15%: 159 [117, 215]
+    20%: 186 [137, 251]
+    25%: 220 [162, 297]
+    30%: 263 [194, 356]
+FORECAST TRACK RECORD (predicted vs actual, months 1-3):
+  M1 FOODS_3_252_CA_4 @ 10%: pred 114 [73,180] vs actual 115
+  M1 FOODS_3_473_TX_2 @ 0%: pred 36 [26,49] vs actual 29
+  M1 FOODS_3_668_CA_3 @ 0%: pred 38 [28,52] vs actual 33
+  M1 FOODS_3_080_CA_4 @ 0%: pred 49 [34,71] vs actual 77
+  M1 FOODS_3_694_TX_2 @ 30%: pred 275 [203,373] vs actual 557
+  M2 FOODS_3_252_CA_4 @ 30%: pred 232 [147,365] vs actual 292
+  M2 FOODS_3_473_TX_2 @ 5%: pred 52 [38,72] vs actual 59
+  M2 FOODS_3_668_CA_3 @ 0%: pred 35 [26,48] vs actual 44
+  M2 FOODS_3_080_CA_4 @ 30%: pred 143 [99,207] vs actual 169
+  M2 FOODS_3_694_TX_2 @ 5%: pred 93 [68,125] vs actual 96
+  M3 FOODS_3_252_CA_4 @ 30%: pred 313 [199,492] vs actual 216
+  M3 FOODS_3_473_TX_2 @ 0%: pred 45 [33,62] vs actual 53
+  M3 FOODS_3_668_CA_3 @ 25%: pred 92 [68,124] vs actual 104
+  M3 FOODS_3_080_CA_4 @ 15%: pred 77 [53,112] vs actual 51
+  M3 FOODS_3_694_TX_2 @ 20%: pred 146 [108,198] vs actual 114
+--- VENDOR objective ---
+You are the Vendor. Objective: maximize TOTAL PORTFOLIO PROFIT across all products. You
+  know unit costs/margins (private). Respond with one JSON action.
+--- VENDOR private ---
+YOUR COSTS/MARGINS (Vendor private):
+  FOODS_3_252_CA_4: cost $0.67 of $1.48
+  FOODS_3_473_TX_2: cost $2.72 of $3.88
+  FOODS_3_668_CA_3: cost $0.71 of $1.58
+  FOODS_3_080_CA_4: cost $0.32 of $1.58
+  FOODS_3_694_TX_2: cost $0.32 of $1.58
+=== TRANSCRIPT ===
+[T1] Buyer: PROPOSE FOODS_3_252_CA_4 25%, FOODS_3_473_TX_2 25%, FOODS_3_668_CA_3 25%,
+  FOODS_3_080_CA_4 25%, FOODS_3_694_TX_2 25%
+        "A 25% discount across all products is projected to generate approximately $1,160
+          in total sales, narrowly exceeding the $1,152 target."
+[T2] Vendor: PROPOSE FOODS_3_252_CA_4 30%, FOODS_3_473_TX_2 0%, FOODS_3_668_CA_3 25%,
+  FOODS_3_080_CA_4 30%, FOODS_3_694_TX_2 30%
+        "We can exceed the portfolio target more profitably by concentrating discounts on
+          the strongest volume-responsive products while keeping the low-margin item at
+          list price."
+[T3] Buyer: PROPOSE FOODS_3_252_CA_4 30%, FOODS_3_473_TX_2 5%, FOODS_3_668_CA_3 30%,
+  FOODS_3_080_CA_4 30%, FOODS_3_694_TX_2 30%
+        "The current mix is projected to fall short of the $1,152 portfolio target.
+          Keeping the low-margin item at only 5% while raising the remaining responsive
+          product to 30% is projected to deliver about $1,161."
+[T4] Vendor: DECISION: ACCEPT
+        "The revised mix clears the portfolio sales target while limiting the discount on
+          the lowest-margin product. We accept."
+\end{verbatim}
+}
+
+\subsubsection*{gpt: Aggressive negotiation $\rightarrow$ NO deal (surplus destroyed, vendor gets nothing)}
+\noindent\texttt{bias\_m20} (set\_0) --- target \$1,152, max\_turns in 20 turns, sales \$0, target met: False.
+{\footnotesize
+\begin{verbatim}
+=== CONTEXT (what each side saw) ===
+--- SHARED ---
+PRODUCTS:
+  FOODS_3_252_CA_4: FOODS $1.48
+  FOODS_3_473_TX_2: FOODS $3.88
+  FOODS_3_668_CA_3: FOODS $1.58
+  FOODS_3_080_CA_4: FOODS $1.58
+  FOODS_3_694_TX_2: FOODS $1.58
+Allowed discounts: 0%, 5%, 10%, 15%, 20%, 25%, 30%
+PAST EVENTS (both agents see units & revenue):
+  Month 1:
+    FOODS_3_252_CA_4 @ 10%: 46 units, $61
+    FOODS_3_473_TX_2 @ 10%: 44 units, $152
+    FOODS_3_668_CA_3 @ 20%: 68 units, $86
+    FOODS_3_080_CA_4 @ 30%: 112 units, $123
+    FOODS_3_694_TX_2 @ 10%: 89 units, $127
+  Month 2:
+    FOODS_3_252_CA_4 @ 10%: 65 units, $87
+    FOODS_3_473_TX_2 @ 10%: 40 units, $138
+    FOODS_3_668_CA_3 @ 15%: 61 units, $82
+    FOODS_3_080_CA_4 @ 5%: 79 units, $118
+    FOODS_3_694_TX_2 @ 5%: 140 units, $210
+  Month 3:
+    FOODS_3_252_CA_4 @ 20%: 152 units, $180
+    FOODS_3_473_TX_2 @ 20%: 102 units, $316
+    FOODS_3_668_CA_3 @ 20%: 104 units, $131
+    FOODS_3_080_CA_4 @ 25%: 147 units, $174
+    FOODS_3_694_TX_2 @ 0%: 117 units, $185
+--- BUYER objective ---
+You are the Buyer. Objective: reach a total SALES target of $1,152 across all products by
+  negotiating discounts. Only you can see the demand forecast. Respond with one JSON
+  action.
+--- BUYER private ---
+FORECAST (Buyer only) — predicted month-4 units per discount [80% PI]:
+  FOODS_3_252_CA_4:
+    0%: 78 [49, 122]
+    5%: 89 [56, 140]
+    10%: 102 [65, 161]
+    15%: 119 [75, 187]
+    20%: 139 [88, 219]
+    25%: 164 [104, 258]
+    30%: 197 [125, 309]
+  FOODS_3_473_TX_2:
+    0%: 40 [29, 55]
+    5%: 46 [34, 63]
+    10%: 53 [39, 72]
+    15%: 61 [45, 84]
+    20%: 72 [52, 98]
+    25%: 85 [62, 116]
+    30%: 101 [74, 139]
+  FOODS_3_668_CA_3:
+    0%: 36 [27, 49]
+    5%: 41 [30, 56]
+    10%: 47 [35, 64]
+    15%: 55 [41, 75]
+    20%: 64 [47, 87]
+    25%: 76 [56, 103]
+    30%: 91 [67, 123]
+  FOODS_3_080_CA_4:
+    0%: 42 [29, 60]
+    5%: 48 [33, 69]
+    10%: 55 [38, 80]
+    15%: 64 [44, 92]
+    20%: 75 [52, 108]
+    25%: 88 [61, 128]
+    30%: 106 [73, 153]
+  FOODS_3_694_TX_2:
+    0%: 104 [77, 141]
+    5%: 119 [88, 161]
+    10%: 137 [101, 185]
+    15%: 159 [117, 215]
+    20%: 186 [137, 251]
+    25%: 220 [162, 297]
+    30%: 263 [194, 356]
+FORECAST TRACK RECORD (predicted vs actual, months 1-3):
+  M1 FOODS_3_252_CA_4 @ 10%: pred 55 [35,86] vs actual 46
+  M1 FOODS_3_473_TX_2 @ 10%: pred 53 [39,72] vs actual 44
+  M1 FOODS_3_668_CA_3 @ 20%: pred 70 [52,95] vs actual 68
+  M1 FOODS_3_080_CA_4 @ 30%: pred 97 [67,141] vs actual 112
+  M1 FOODS_3_694_TX_2 @ 10%: pred 84 [62,114] vs actual 89
+  M2 FOODS_3_252_CA_4 @ 10%: pred 69 [44,108] vs actual 65
+  M2 FOODS_3_473_TX_2 @ 10%: pred 48 [35,66] vs actual 40
+  M2 FOODS_3_668_CA_3 @ 15%: pred 52 [39,71] vs actual 61
+  M2 FOODS_3_080_CA_4 @ 5%: pred 55 [38,80] vs actual 79
+  M2 FOODS_3_694_TX_2 @ 5%: pred 109 [80,147] vs actual 140
+  M3 FOODS_3_252_CA_4 @ 20%: pred 145 [92,228] vs actual 152
+  M3 FOODS_3_473_TX_2 @ 20%: pred 73 [53,100] vs actual 102
+  M3 FOODS_3_668_CA_3 @ 20%: pred 86 [64,117] vs actual 104
+  M3 FOODS_3_080_CA_4 @ 25%: pred 118 [81,170] vs actual 147
+  M3 FOODS_3_694_TX_2 @ 0%: pred 98 [73,133] vs actual 117
+--- VENDOR objective ---
+You are the Vendor. Objective: maximize TOTAL PORTFOLIO PROFIT across all products. You
+  know unit costs/margins (private). Respond with one JSON action.
+--- VENDOR private ---
+YOUR COSTS/MARGINS (Vendor private):
+  FOODS_3_252_CA_4: cost $0.67 of $1.48
+  FOODS_3_473_TX_2: cost $2.72 of $3.88
+  FOODS_3_668_CA_3: cost $0.71 of $1.58
+  FOODS_3_080_CA_4: cost $0.32 of $1.58
+  FOODS_3_694_TX_2: cost $0.32 of $1.58
+=== TRANSCRIPT ===
+[T1] Buyer: PROPOSE FOODS_3_252_CA_4 30%, FOODS_3_473_TX_2 30%, FOODS_3_668_CA_3 30%,
+  FOODS_3_080_CA_4 30%, FOODS_3_694_TX_2 30%
+        "To maximize total sales across the full portfolio, we propose a coordinated 30%
+          discount on every product."
+[T2] Vendor: PROPOSE FOODS_3_252_CA_4 20%, FOODS_3_473_TX_2 20%, FOODS_3_668_CA_3 25%,
+  FOODS_3_080_CA_4 25%, FOODS_3_694_TX_2 5%
+        "A uniform 30% discount would materially reduce portfolio profit. We propose
+          targeted discounts based on each product's demonstrated performance."
+[T3] Buyer: PROPOSE FOODS_3_252_CA_4 30%, FOODS_3_473_TX_2 30%, FOODS_3_668_CA_3 30%,
+  FOODS_3_080_CA_4 30%, FOODS_3_694_TX_2 30%
+        "The proposed mix is insufficient to reach the portfolio sales target. Stronger
+          discounts are needed across all five products, especially FOODS_3_694_TX_2. We
+          maintain a coordinated 30% portfolio-wide promotion."
+[T4] Vendor: PROPOSE FOODS_3_252_CA_4 25%, FOODS_3_473_TX_2 20%, FOODS_3_668_CA_3 25%,
+  FOODS_3_080_CA_4 25%, FOODS_3_694_TX_2 5%
+        "A 30% portfolio-wide discount is not commercially viable. To support the sales
+          target while protecting total portfolio profit, we can strengthen selected
+          items, but FOODS_3_694_TX_2 performs substantially better at a low discount."
+[T5] Buyer: PROPOSE FOODS_3_252_CA_4 30%, FOODS_3_473_TX_2 30%, FOODS_3_668_CA_3 30%,
+  FOODS_3_080_CA_4 30%, FOODS_3_694_TX_2 30%
+        "The revised mix remains well below the portfolio sales target. Every item
+          requires the maximum promotional support, including FOODS_3_694_TX_2; its
+          forecasted sales rise materially at higher discounts. We therefore maintain a
+          30% portfolio-wide proposal."
+[T6] Vendor: PROPOSE FOODS_3_252_CA_4 20%, FOODS_3_473_TX_2 20%, FOODS_3_668_CA_3 20%,
+  FOODS_3_080_CA_4 25%, FOODS_3_694_TX_2 5%
+        "The evidence supports targeted promotion, not a uniform maximum discount. This
+          mix provides strong sales support while avoiding margin-destructive discounting,
+          particularly on FOODS_3_473_TX_2 and FOODS_3_694_TX_2."
+[T7] Buyer: PROPOSE FOODS_3_252_CA_4 30%, FOODS_3_473_TX_2 30%, FOODS_3_668_CA_3 30%,
+  FOODS_3_080_CA_4 30%, FOODS_3_694_TX_2 30%
+        "The sales target requires maximum promotional support; the current mix is
+          insufficient, especially the 5% discount on FOODS_3_694_TX_2. We maintain 30%
+          across the portfolio."
+[T8] Vendor: PROPOSE FOODS_3_252_CA_4 20%, FOODS_3_473_TX_2 20%, FOODS_3_668_CA_3 20%,
+  FOODS_3_080_CA_4 25%, FOODS_3_694_TX_2 5%
+        "We reject the uniform 30% structure. Historical results support this
+          profit-maximizing targeted mix as our firm portfolio proposal."
+[T9] Buyer: PROPOSE FOODS_3_252_CA_4 30%, FOODS_3_473_TX_2 30%, FOODS_3_668_CA_3 30%,
+  FOODS_3_080_CA_4 30%, FOODS_3_694_TX_2 30%
+        "The firm mix cannot support the required portfolio sales target. Each product
+          generates stronger projected sales at 30%, so we maintain the only structure
+          that maximizes the portfolio's chance of reaching target."
+[T10] Vendor: PROPOSE FOODS_3_252_CA_4 20%, FOODS_3_473_TX_2 20%, FOODS_3_668_CA_3 20%,
+  FOODS_3_080_CA_4 25%, FOODS_3_694_TX_2 5%
+        "We cannot accept a portfolio-wide 30% discount. Our final profit-sustainable
+          structure concentrates support where observed performance justifies it while
+          avoiding uneconomic discounting."
+[T11] Buyer: PROPOSE FOODS_3_252_CA_4 30%, FOODS_3_473_TX_2 30%, FOODS_3_668_CA_3 30%,
+  FOODS_3_080_CA_4 30%, FOODS_3_694_TX_2 30%
+        "The final vendor mix cannot reach the $1,152 sales target. Even maximum promotion
+          leaves little room against the target, so reducing any item is not viable. We
+          maintain 30% across all products."
+[T12] Vendor: PROPOSE FOODS_3_252_CA_4 25%, FOODS_3_473_TX_2 20%, FOODS_3_668_CA_3 25%,
+  FOODS_3_080_CA_4 25%, FOODS_3_694_TX_2 5%
+        "We cannot support 30% across the portfolio because it destroys profit on key
+          items. As a final compromise, we will increase support on three products while
+          retaining the historically profit-maximizing levels on the remaining two."
+[T13] Buyer: PROPOSE FOODS_3_252_CA_4 30%, FOODS_3_473_TX_2 30%, FOODS_3_668_CA_3 30%,
+  FOODS_3_080_CA_4 30%, FOODS_3_694_TX_2 30%
+        "The proposed structure forecasts far below the $1,152 sales target. Revenue
+          increases through 30% for every product, so reducing any item moves the
+          portfolio further from target. We require maximum support across all five
+          products."
+[T14] Vendor: PROPOSE FOODS_3_252_CA_4 20%, FOODS_3_473_TX_2 20%, FOODS_3_668_CA_3 20%,
+  FOODS_3_080_CA_4 25%, FOODS_3_694_TX_2 5%
+        "The 30% structure is margin-destructive and does not maximize total portfolio
+          profit. We maintain the strongest profit-supported mix from observed results."
+[T15] Buyer: PROPOSE FOODS_3_252_CA_4 30%, FOODS_3_473_TX_2 30%, FOODS_3_668_CA_3 30%,
+  FOODS_3_080_CA_4 30%, FOODS_3_694_TX_2 30%
+        "The current mix is forecast to generate only about $878, versus the $1,152
+          target. Even 30% across all products forecasts roughly $988, so any lower
+          discount worsens the shortfall. We require maximum support on every item."
+[T16] Vendor: PROPOSE FOODS_3_252_CA_4 20%, FOODS_3_473_TX_2 20%, FOODS_3_668_CA_3 20%,
+  FOODS_3_080_CA_4 25%, FOODS_3_694_TX_2 5%
+        "The sales target is unattainable even at 30%, so margin-destructive discounts
+          cannot be justified. We maintain the observed profit-maximizing portfolio mix."
+[T17] Buyer: PROPOSE FOODS_3_252_CA_4 30%, FOODS_3_473_TX_2 30%, FOODS_3_668_CA_3 30%,
+  FOODS_3_080_CA_4 30%, FOODS_3_694_TX_2 30%
+        "The $1,152 target requires maximizing sales, not profit. The forecast rises at
+          every discount step for every product, and even 30% yields only about $988
+          expected revenue, leaving no room to reduce support. We maintain the maximum
+          portfolio promotion."
+[T18] Vendor: PROPOSE FOODS_3_252_CA_4 20%, FOODS_3_473_TX_2 20%, FOODS_3_668_CA_3 20%,
+  FOODS_3_080_CA_4 25%, FOODS_3_694_TX_2 5%
+        "The target remains unattainable at 30%, so sacrificing portfolio profit cannot be
+          justified. We maintain our final profit-maximizing structure."
+[T19] Buyer: PROPOSE FOODS_3_252_CA_4 30%, FOODS_3_473_TX_2 30%, FOODS_3_668_CA_3 30%,
+  FOODS_3_080_CA_4 30%, FOODS_3_694_TX_2 30%
+        "The vendor mix forecasts only about $879 in sales. Since the $1,152 target
+          requires maximizing expected revenue, we maintain 30% support across all
+          products, forecasting about $987—the highest available portfolio total."
+[T20] Vendor: PROPOSE FOODS_3_252_CA_4 20%, FOODS_3_473_TX_2 20%, FOODS_3_668_CA_3 20%,
+  FOODS_3_080_CA_4 25%, FOODS_3_694_TX_2 5%
+        "The 30% portfolio promotion does not maximize total portfolio profit. Our final
+          proposal uses the profit-maximizing observed discount for each product."
+\end{verbatim}
+}
+
+\subsubsection*{qwen: Perfect (oracle) forecast on a weak-reactive model --- behavior barely shifts}
+\noindent\texttt{unbiased} (set\_0) --- target \$1,152, AGREEMENT in 2 turns, sales \$730, target met: False.
+{\footnotesize
+\begin{verbatim}
+=== CONTEXT (what each side saw) ===
+--- SHARED ---
+PRODUCTS:
+  FOODS_3_252_CA_4: FOODS $1.48
+  FOODS_3_473_TX_2: FOODS $3.88
+  FOODS_3_668_CA_3: FOODS $1.58
+  FOODS_3_080_CA_4: FOODS $1.58
+  FOODS_3_694_TX_2: FOODS $1.58
+Allowed discounts: 0%, 5%, 10%, 15%, 20%, 25%, 30%
+PAST EVENTS (both agents see units & revenue):
+  Month 1:
+    FOODS_3_252_CA_4 @ 30%: 226 units, $234
+    FOODS_3_473_TX_2 @ 15%: 45 units, $148
+    FOODS_3_668_CA_3 @ 15%: 52 units, $70
+    FOODS_3_080_CA_4 @ 20%: 60 units, $76
+    FOODS_3_694_TX_2 @ 10%: 87 units, $124
+  Month 2:
+    FOODS_3_252_CA_4 @ 20%: 106 units, $126
+    FOODS_3_473_TX_2 @ 0%: 45 units, $174
+    FOODS_3_668_CA_3 @ 10%: 74 units, $105
+    FOODS_3_080_CA_4 @ 5%: 55 units, $82
+    FOODS_3_694_TX_2 @ 30%: 344 units, $381
+  Month 3:
+    FOODS_3_252_CA_4 @ 10%: 73 units, $98
+    FOODS_3_473_TX_2 @ 25%: 117 units, $340
+    FOODS_3_668_CA_3 @ 10%: 70 units, $99
+    FOODS_3_080_CA_4 @ 25%: 139 units, $164
+    FOODS_3_694_TX_2 @ 10%: 146 units, $208
+--- BUYER objective ---
+You are the Buyer. Objective: reach a total SALES target of $1,152 across all products by
+  negotiating discounts. Only you can see the demand forecast. Respond with one JSON
+  action.
+--- BUYER private ---
+FORECAST (Buyer only) — predicted month-4 units per discount [80% PI]:
+  FOODS_3_252_CA_4:
+    0%: 112 [71, 176]
+    5%: 128 [81, 201]
+    10%: 147 [94, 232]
+    15%: 171 [109, 269]
+    20%: 200 [127, 315]
+    25%: 237 [150, 372]
+    30%: 283 [180, 445]
+  FOODS_3_473_TX_2:
+    0%: 56 [41, 77]
+    5%: 64 [47, 87]
+    10%: 74 [54, 101]
+    15%: 85 [62, 117]
+    20%: 100 [73, 137]
+    25%: 118 [87, 162]
+    30%: 142 [104, 194]
+  FOODS_3_668_CA_3:
+    0%: 43 [32, 58]
+    5%: 49 [36, 67]
+    10%: 57 [42, 77]
+    15%: 66 [48, 89]
+    20%: 77 [57, 104]
+    25%: 91 [67, 123]
+    30%: 109 [80, 147]
+  FOODS_3_080_CA_4:
+    0%: 69 [48, 100]
+    5%: 79 [54, 114]
+    10%: 91 [63, 131]
+    15%: 105 [73, 152]
+    20%: 123 [85, 178]
+    25%: 146 [101, 211]
+    30%: 174 [120, 253]
+  FOODS_3_694_TX_2:
+    0%: 99 [73, 134]
+    5%: 113 [84, 153]
+    10%: 130 [96, 176]
+    15%: 151 [112, 204]
+    20%: 177 [131, 239]
+    25%: 209 [155, 283]
+    30%: 250 [185, 339]
+FORECAST TRACK RECORD (predicted vs actual, months 1-3):
+  M1 FOODS_3_252_CA_4 @ 30%: pred 162 [103,254] vs actual 226
+  M1 FOODS_3_473_TX_2 @ 15%: pred 64 [47,88] vs actual 45
+  M1 FOODS_3_668_CA_3 @ 15%: pred 52 [38,70] vs actual 52
+  M1 FOODS_3_080_CA_4 @ 20%: pred 80 [56,116] vs actual 60
+  M1 FOODS_3_694_TX_2 @ 10%: pred 85 [63,116] vs actual 87
+  M2 FOODS_3_252_CA_4 @ 20%: pred 116 [74,183] vs actual 106
+  M2 FOODS_3_473_TX_2 @ 0%: pred 49 [36,67] vs actual 45
+  M2 FOODS_3_668_CA_3 @ 10%: pred 63 [47,86] vs actual 74
+  M2 FOODS_3_080_CA_4 @ 5%: pred 49 [34,71] vs actual 55
+  M2 FOODS_3_694_TX_2 @ 30%: pred 339 [250,458] vs actual 344
+  M3 FOODS_3_252_CA_4 @ 10%: pred 139 [89,219] vs actual 73
+  M3 FOODS_3_473_TX_2 @ 25%: pred 93 [68,127] vs actual 117
+  M3 FOODS_3_668_CA_3 @ 10%: pred 62 [46,84] vs actual 70
+  M3 FOODS_3_080_CA_4 @ 25%: pred 127 [88,184] vs actual 139
+  M3 FOODS_3_694_TX_2 @ 10%: pred 175 [129,237] vs actual 146
+--- VENDOR objective ---
+You are the Vendor. Objective: maximize TOTAL PORTFOLIO PROFIT across all products. You
+  know unit costs/margins (private). Respond with one JSON action.
+--- VENDOR private ---
+YOUR COSTS/MARGINS (Vendor private):
+  FOODS_3_252_CA_4: cost $0.67 of $1.48
+  FOODS_3_473_TX_2: cost $2.72 of $3.88
+  FOODS_3_668_CA_3: cost $0.71 of $1.58
+  FOODS_3_080_CA_4: cost $0.32 of $1.58
+  FOODS_3_694_TX_2: cost $0.32 of $1.58
+=== TRANSCRIPT ===
+[T1] Buyer: PROPOSE FOODS_3_252_CA_4 10%, FOODS_3_473_TX_2 10%, FOODS_3_668_CA_3 10%,
+  FOODS_3_080_CA_4 10%, FOODS_3_694_TX_2 10%
+        "Proposing 10% discount across all products to balance sales volume and margin,
+          based on forecasted demand and past performance."
+[T2] Vendor: DECISION: ACCEPT
+        "The buyer's proposed 10% discount across all products would reduce our margin on
+          high-cost items like FOODS_3_473_TX_2, where the cost is $2.72 of $3.88, making
+          a 10% discount risky for profitability. However, for low-cost items like
+          FOODS_3_080_CA_4 and FOODS_3_694_TX_2, 10% is acceptable and aligns with past
+          performance (e.g., high volume at 10% in Month 3). Given the balanced nature of
+          the portfolio and the buyer's push for consistency, we accept the proposal to
+          maintain negotiation momentum and ensure volume stability, especially on
+          high-margin items."
+\end{verbatim}
+}

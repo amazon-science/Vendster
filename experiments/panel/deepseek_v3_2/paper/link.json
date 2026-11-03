@@ -1,0 +1,1032 @@
+{
+  "forecaster_level": {
+    "metric": "relative_wql",
+    "points": [
+      {
+        "forecaster": "seasonal_naive",
+        "x": 1.0,
+        "y": 0.3125
+      },
+      {
+        "forecaster": "auto_ets",
+        "x": 0.5196149283351227,
+        "y": 0.31
+      },
+      {
+        "forecaster": "auto_theta",
+        "x": 0.5277094573649825,
+        "y": 0.295
+      },
+      {
+        "forecaster": "lightgbm_global",
+        "x": 0.6886139338717431,
+        "y": 0.295
+      },
+      {
+        "forecaster": "chronos2",
+        "x": 0.5064934001506665,
+        "y": 0.225
+      },
+      {
+        "forecaster": "chronos_bolt",
+        "x": 0.527700329173627,
+        "y": 0.295
+      },
+      {
+        "forecaster": "timesfm25",
+        "x": 0.5003683086867678,
+        "y": 0.2825
+      },
+      {
+        "forecaster": "nf_nhits",
+        "x": 0.5291671259084385,
+        "y": 0.3175
+      },
+      {
+        "forecaster": "nf_patchtst",
+        "x": 0.530109772918492,
+        "y": 0.3175
+      },
+      {
+        "forecaster": "nf_deepar",
+        "x": 0.6051643899381149,
+        "y": 0.2925
+      }
+    ],
+    "n": 10,
+    "pearson": 0.2762578414802073,
+    "spearman": 0.4923659639173309,
+    "ols_slope": 0.04863801055874818,
+    "ols_intercept": 0.26538362455393727
+  },
+  "basket_level": {
+    "metric": "relative_wql",
+    "points": [
+      {
+        "forecaster": "seasonal_naive",
+        "set_id": "set_0",
+        "x": 1.0,
+        "y": 0.4
+      },
+      {
+        "forecaster": "seasonal_naive",
+        "set_id": "set_1",
+        "x": 1.0,
+        "y": 0.28
+      },
+      {
+        "forecaster": "seasonal_naive",
+        "set_id": "set_2",
+        "x": 1.0,
+        "y": 0.24
+      },
+      {
+        "forecaster": "seasonal_naive",
+        "set_id": "set_3",
+        "x": 1.0,
+        "y": 0.24
+      },
+      {
+        "forecaster": "seasonal_naive",
+        "set_id": "set_4",
+        "x": 1.0,
+        "y": 0.36
+      },
+      {
+        "forecaster": "seasonal_naive",
+        "set_id": "set_5",
+        "x": 1.0,
+        "y": 0.2
+      },
+      {
+        "forecaster": "seasonal_naive",
+        "set_id": "set_6",
+        "x": 1.0,
+        "y": 0.36
+      },
+      {
+        "forecaster": "seasonal_naive",
+        "set_id": "set_7",
+        "x": 1.0,
+        "y": 0.44
+      },
+      {
+        "forecaster": "seasonal_naive",
+        "set_id": "set_8",
+        "x": 1.0,
+        "y": 0.4
+      },
+      {
+        "forecaster": "seasonal_naive",
+        "set_id": "set_9",
+        "x": 1.0,
+        "y": 0.16
+      },
+      {
+        "forecaster": "seasonal_naive",
+        "set_id": "set_10",
+        "x": 1.0,
+        "y": 0.28
+      },
+      {
+        "forecaster": "seasonal_naive",
+        "set_id": "set_11",
+        "x": 1.0,
+        "y": 0.16
+      },
+      {
+        "forecaster": "seasonal_naive",
+        "set_id": "set_12",
+        "x": 1.0,
+        "y": 0.44
+      },
+      {
+        "forecaster": "seasonal_naive",
+        "set_id": "set_13",
+        "x": 1.0,
+        "y": 0.44
+      },
+      {
+        "forecaster": "seasonal_naive",
+        "set_id": "set_14",
+        "x": 1.0,
+        "y": 0.28
+      },
+      {
+        "forecaster": "seasonal_naive",
+        "set_id": "set_15",
+        "x": 1.0,
+        "y": 0.32
+      },
+      {
+        "forecaster": "auto_ets",
+        "set_id": "set_0",
+        "x": 0.40525116241479703,
+        "y": 0.28
+      },
+      {
+        "forecaster": "auto_ets",
+        "set_id": "set_1",
+        "x": 1.2760279624261046,
+        "y": 0.52
+      },
+      {
+        "forecaster": "auto_ets",
+        "set_id": "set_2",
+        "x": 0.3174726134043299,
+        "y": 0.24
+      },
+      {
+        "forecaster": "auto_ets",
+        "set_id": "set_3",
+        "x": 0.6388709954465538,
+        "y": 0.32
+      },
+      {
+        "forecaster": "auto_ets",
+        "set_id": "set_4",
+        "x": 0.40058892344926167,
+        "y": 0.08
+      },
+      {
+        "forecaster": "auto_ets",
+        "set_id": "set_5",
+        "x": 0.6679121546663214,
+        "y": 0.2
+      },
+      {
+        "forecaster": "auto_ets",
+        "set_id": "set_6",
+        "x": 0.5301115384018482,
+        "y": 0.36
+      },
+      {
+        "forecaster": "auto_ets",
+        "set_id": "set_7",
+        "x": 0.7691501047599049,
+        "y": 0.24
+      },
+      {
+        "forecaster": "auto_ets",
+        "set_id": "set_8",
+        "x": 0.4963685427219211,
+        "y": 0.32
+      },
+      {
+        "forecaster": "auto_ets",
+        "set_id": "set_9",
+        "x": 0.4967886304027928,
+        "y": 0.28
+      },
+      {
+        "forecaster": "auto_ets",
+        "set_id": "set_10",
+        "x": 0.5506982723696979,
+        "y": 0.36
+      },
+      {
+        "forecaster": "auto_ets",
+        "set_id": "set_11",
+        "x": 0.49207861883127246,
+        "y": 0.24
+      },
+      {
+        "forecaster": "auto_ets",
+        "set_id": "set_12",
+        "x": 0.3431917846101546,
+        "y": 0.28
+      },
+      {
+        "forecaster": "auto_ets",
+        "set_id": "set_13",
+        "x": 0.38623288817428814,
+        "y": 0.44
+      },
+      {
+        "forecaster": "auto_ets",
+        "set_id": "set_14",
+        "x": 0.3470011894717562,
+        "y": 0.24
+      },
+      {
+        "forecaster": "auto_ets",
+        "set_id": "set_15",
+        "x": 0.7127010234872424,
+        "y": 0.56
+      },
+      {
+        "forecaster": "auto_theta",
+        "set_id": "set_0",
+        "x": 0.4352520718236135,
+        "y": 0.08
+      },
+      {
+        "forecaster": "auto_theta",
+        "set_id": "set_1",
+        "x": 1.2384254429472705,
+        "y": 0.12
+      },
+      {
+        "forecaster": "auto_theta",
+        "set_id": "set_2",
+        "x": 0.4110735357665474,
+        "y": 0.24
+      },
+      {
+        "forecaster": "auto_theta",
+        "set_id": "set_3",
+        "x": 0.690870561374317,
+        "y": 0.32
+      },
+      {
+        "forecaster": "auto_theta",
+        "set_id": "set_4",
+        "x": 0.480778810115131,
+        "y": 0.36
+      },
+      {
+        "forecaster": "auto_theta",
+        "set_id": "set_5",
+        "x": 0.6770039269744709,
+        "y": 0.52
+      },
+      {
+        "forecaster": "auto_theta",
+        "set_id": "set_6",
+        "x": 0.4344177267109607,
+        "y": 0.6
+      },
+      {
+        "forecaster": "auto_theta",
+        "set_id": "set_7",
+        "x": 0.7087353558033034,
+        "y": 0.4
+      },
+      {
+        "forecaster": "auto_theta",
+        "set_id": "set_8",
+        "x": 0.5345040065271645,
+        "y": 0.16
+      },
+      {
+        "forecaster": "auto_theta",
+        "set_id": "set_9",
+        "x": 0.5048592842111983,
+        "y": 0.24
+      },
+      {
+        "forecaster": "auto_theta",
+        "set_id": "set_10",
+        "x": 0.6247127637613296,
+        "y": 0.24
+      },
+      {
+        "forecaster": "auto_theta",
+        "set_id": "set_11",
+        "x": 0.4966348605044433,
+        "y": 0.16
+      },
+      {
+        "forecaster": "auto_theta",
+        "set_id": "set_12",
+        "x": 0.3549678057132466,
+        "y": 0.32
+      },
+      {
+        "forecaster": "auto_theta",
+        "set_id": "set_13",
+        "x": 0.3314950608038479,
+        "y": 0.24
+      },
+      {
+        "forecaster": "auto_theta",
+        "set_id": "set_14",
+        "x": 0.35449290428012786,
+        "y": 0.24
+      },
+      {
+        "forecaster": "auto_theta",
+        "set_id": "set_15",
+        "x": 0.7220805585149858,
+        "y": 0.48
+      },
+      {
+        "forecaster": "lightgbm_global",
+        "set_id": "set_0",
+        "x": 0.45364495599632015,
+        "y": 0.16
+      },
+      {
+        "forecaster": "lightgbm_global",
+        "set_id": "set_1",
+        "x": 1.6922065116394511,
+        "y": 0.24
+      },
+      {
+        "forecaster": "lightgbm_global",
+        "set_id": "set_2",
+        "x": 0.7369639938290161,
+        "y": 0.36
+      },
+      {
+        "forecaster": "lightgbm_global",
+        "set_id": "set_3",
+        "x": 0.5715399358560538,
+        "y": 0.28
+      },
+      {
+        "forecaster": "lightgbm_global",
+        "set_id": "set_4",
+        "x": 0.8535958448738453,
+        "y": 0.36
+      },
+      {
+        "forecaster": "lightgbm_global",
+        "set_id": "set_5",
+        "x": 0.6187004834448708,
+        "y": 0.4
+      },
+      {
+        "forecaster": "lightgbm_global",
+        "set_id": "set_6",
+        "x": 0.9236388661879013,
+        "y": 0.28
+      },
+      {
+        "forecaster": "lightgbm_global",
+        "set_id": "set_7",
+        "x": 0.8176770807924215,
+        "y": 0.32
+      },
+      {
+        "forecaster": "lightgbm_global",
+        "set_id": "set_8",
+        "x": 0.5304394704739881,
+        "y": 0.36
+      },
+      {
+        "forecaster": "lightgbm_global",
+        "set_id": "set_9",
+        "x": 0.7777526308320014,
+        "y": 0.28
+      },
+      {
+        "forecaster": "lightgbm_global",
+        "set_id": "set_10",
+        "x": 0.9070836013098377,
+        "y": 0.24
+      },
+      {
+        "forecaster": "lightgbm_global",
+        "set_id": "set_11",
+        "x": 0.5906235593835508,
+        "y": 0.24
+      },
+      {
+        "forecaster": "lightgbm_global",
+        "set_id": "set_12",
+        "x": 0.4451499974481455,
+        "y": 0.2
+      },
+      {
+        "forecaster": "lightgbm_global",
+        "set_id": "set_13",
+        "x": 0.5288217835131452,
+        "y": 0.4
+      },
+      {
+        "forecaster": "lightgbm_global",
+        "set_id": "set_14",
+        "x": 0.3397864030865355,
+        "y": 0.2
+      },
+      {
+        "forecaster": "lightgbm_global",
+        "set_id": "set_15",
+        "x": 0.5661432160441517,
+        "y": 0.4
+      },
+      {
+        "forecaster": "chronos2",
+        "set_id": "set_0",
+        "x": 0.3623148352863144,
+        "y": 0.12
+      },
+      {
+        "forecaster": "chronos2",
+        "set_id": "set_1",
+        "x": 1.3188669438669438,
+        "y": 0.32
+      },
+      {
+        "forecaster": "chronos2",
+        "set_id": "set_2",
+        "x": 0.4426080445014976,
+        "y": 0.36
+      },
+      {
+        "forecaster": "chronos2",
+        "set_id": "set_3",
+        "x": 0.40651286491835725,
+        "y": 0.16
+      },
+      {
+        "forecaster": "chronos2",
+        "set_id": "set_4",
+        "x": 0.49484695682944085,
+        "y": 0.12
+      },
+      {
+        "forecaster": "chronos2",
+        "set_id": "set_5",
+        "x": 0.5886485826001955,
+        "y": 0.2
+      },
+      {
+        "forecaster": "chronos2",
+        "set_id": "set_6",
+        "x": 0.36974949392712547,
+        "y": 0.24
+      },
+      {
+        "forecaster": "chronos2",
+        "set_id": "set_7",
+        "x": 0.6716340859030836,
+        "y": 0.16
+      },
+      {
+        "forecaster": "chronos2",
+        "set_id": "set_8",
+        "x": 0.4771417343463452,
+        "y": 0.32
+      },
+      {
+        "forecaster": "chronos2",
+        "set_id": "set_9",
+        "x": 0.4028740056453683,
+        "y": 0.28
+      },
+      {
+        "forecaster": "chronos2",
+        "set_id": "set_10",
+        "x": 0.5606275700019582,
+        "y": 0.12
+      },
+      {
+        "forecaster": "chronos2",
+        "set_id": "set_11",
+        "x": 0.5403589853826312,
+        "y": 0.08
+      },
+      {
+        "forecaster": "chronos2",
+        "set_id": "set_12",
+        "x": 0.39659876626898044,
+        "y": 0.16
+      },
+      {
+        "forecaster": "chronos2",
+        "set_id": "set_13",
+        "x": 0.33397654742466976,
+        "y": 0.36
+      },
+      {
+        "forecaster": "chronos2",
+        "set_id": "set_14",
+        "x": 0.4247184187279152,
+        "y": 0.28
+      },
+      {
+        "forecaster": "chronos2",
+        "set_id": "set_15",
+        "x": 0.7599574148296594,
+        "y": 0.32
+      },
+      {
+        "forecaster": "chronos_bolt",
+        "set_id": "set_0",
+        "x": 0.3835949590979439,
+        "y": 0.4
+      },
+      {
+        "forecaster": "chronos_bolt",
+        "set_id": "set_1",
+        "x": 1.2858627858627858,
+        "y": 0.2
+      },
+      {
+        "forecaster": "chronos_bolt",
+        "set_id": "set_2",
+        "x": 0.37962665810868634,
+        "y": 0.16
+      },
+      {
+        "forecaster": "chronos_bolt",
+        "set_id": "set_3",
+        "x": 0.48320757050964874,
+        "y": 0.32
+      },
+      {
+        "forecaster": "chronos_bolt",
+        "set_id": "set_4",
+        "x": 0.4800291932059448,
+        "y": 0.32
+      },
+      {
+        "forecaster": "chronos_bolt",
+        "set_id": "set_5",
+        "x": 0.6153266536331051,
+        "y": 0.32
+      },
+      {
+        "forecaster": "chronos_bolt",
+        "set_id": "set_6",
+        "x": 0.3827176113360324,
+        "y": 0.44
+      },
+      {
+        "forecaster": "chronos_bolt",
+        "set_id": "set_7",
+        "x": 0.6048664647577092,
+        "y": 0.24
+      },
+      {
+        "forecaster": "chronos_bolt",
+        "set_id": "set_8",
+        "x": 0.6179591302069688,
+        "y": 0.16
+      },
+      {
+        "forecaster": "chronos_bolt",
+        "set_id": "set_9",
+        "x": 0.39132666153451384,
+        "y": 0.2
+      },
+      {
+        "forecaster": "chronos_bolt",
+        "set_id": "set_10",
+        "x": 0.5559770902682593,
+        "y": 0.2
+      },
+      {
+        "forecaster": "chronos_bolt",
+        "set_id": "set_11",
+        "x": 0.5141337059329322,
+        "y": 0.48
+      },
+      {
+        "forecaster": "chronos_bolt",
+        "set_id": "set_12",
+        "x": 0.3871085276572667,
+        "y": 0.28
+      },
+      {
+        "forecaster": "chronos_bolt",
+        "set_id": "set_13",
+        "x": 0.3684874573252189,
+        "y": 0.36
+      },
+      {
+        "forecaster": "chronos_bolt",
+        "set_id": "set_14",
+        "x": 0.4615264281507656,
+        "y": 0.24
+      },
+      {
+        "forecaster": "chronos_bolt",
+        "set_id": "set_15",
+        "x": 0.6864771209084836,
+        "y": 0.4
+      },
+      {
+        "forecaster": "timesfm25",
+        "set_id": "set_0",
+        "x": 0.37919681894022783,
+        "y": 0.4
+      },
+      {
+        "forecaster": "timesfm25",
+        "set_id": "set_1",
+        "x": 1.275283194877006,
+        "y": 0.48
+      },
+      {
+        "forecaster": "timesfm25",
+        "set_id": "set_2",
+        "x": 0.42340505311873716,
+        "y": 0.24
+      },
+      {
+        "forecaster": "timesfm25",
+        "set_id": "set_3",
+        "x": 0.547653747513293,
+        "y": 0.2
+      },
+      {
+        "forecaster": "timesfm25",
+        "set_id": "set_4",
+        "x": 0.45996801615267546,
+        "y": 0.28
+      },
+      {
+        "forecaster": "timesfm25",
+        "set_id": "set_5",
+        "x": 0.6364668165289565,
+        "y": 0.16
+      },
+      {
+        "forecaster": "timesfm25",
+        "set_id": "set_6",
+        "x": 0.40021510379999753,
+        "y": 0.4
+      },
+      {
+        "forecaster": "timesfm25",
+        "set_id": "set_7",
+        "x": 0.6564508765804611,
+        "y": 0.16
+      },
+      {
+        "forecaster": "timesfm25",
+        "set_id": "set_8",
+        "x": 0.534986616398984,
+        "y": 0.32
+      },
+      {
+        "forecaster": "timesfm25",
+        "set_id": "set_9",
+        "x": 0.4209821518488594,
+        "y": 0.2
+      },
+      {
+        "forecaster": "timesfm25",
+        "set_id": "set_10",
+        "x": 0.6238255800509,
+        "y": 0.2
+      },
+      {
+        "forecaster": "timesfm25",
+        "set_id": "set_11",
+        "x": 0.45470346465565886,
+        "y": 0.28
+      },
+      {
+        "forecaster": "timesfm25",
+        "set_id": "set_12",
+        "x": 0.3732637909125867,
+        "y": 0.28
+      },
+      {
+        "forecaster": "timesfm25",
+        "set_id": "set_13",
+        "x": 0.37453349839513866,
+        "y": 0.36
+      },
+      {
+        "forecaster": "timesfm25",
+        "set_id": "set_14",
+        "x": 0.37998765320884614,
+        "y": 0.2
+      },
+      {
+        "forecaster": "timesfm25",
+        "set_id": "set_15",
+        "x": 0.5798706947841402,
+        "y": 0.36
+      },
+      {
+        "forecaster": "nf_nhits",
+        "set_id": "set_0",
+        "x": 0.35010139419788444,
+        "y": 0.28
+      },
+      {
+        "forecaster": "nf_nhits",
+        "set_id": "set_1",
+        "x": 1.1077187433064357,
+        "y": 0.32
+      },
+      {
+        "forecaster": "nf_nhits",
+        "set_id": "set_2",
+        "x": 0.4670088751274242,
+        "y": 0.44
+      },
+      {
+        "forecaster": "nf_nhits",
+        "set_id": "set_3",
+        "x": 0.5601640811714425,
+        "y": 0.28
+      },
+      {
+        "forecaster": "nf_nhits",
+        "set_id": "set_4",
+        "x": 0.48964479504454994,
+        "y": 0.32
+      },
+      {
+        "forecaster": "nf_nhits",
+        "set_id": "set_5",
+        "x": 0.5195812015278637,
+        "y": 0.36
+      },
+      {
+        "forecaster": "nf_nhits",
+        "set_id": "set_6",
+        "x": 0.5227471688980998,
+        "y": 0.32
+      },
+      {
+        "forecaster": "nf_nhits",
+        "set_id": "set_7",
+        "x": 0.535455222696985,
+        "y": 0.16
+      },
+      {
+        "forecaster": "nf_nhits",
+        "set_id": "set_8",
+        "x": 0.6095102903322616,
+        "y": 0.2
+      },
+      {
+        "forecaster": "nf_nhits",
+        "set_id": "set_9",
+        "x": 0.5107605772383066,
+        "y": 0.48
+      },
+      {
+        "forecaster": "nf_nhits",
+        "set_id": "set_10",
+        "x": 0.5687950276945678,
+        "y": 0.28
+      },
+      {
+        "forecaster": "nf_nhits",
+        "set_id": "set_11",
+        "x": 0.47631961727388344,
+        "y": 0.28
+      },
+      {
+        "forecaster": "nf_nhits",
+        "set_id": "set_12",
+        "x": 0.4699485550216377,
+        "y": 0.32
+      },
+      {
+        "forecaster": "nf_nhits",
+        "set_id": "set_13",
+        "x": 0.5164676146459842,
+        "y": 0.28
+      },
+      {
+        "forecaster": "nf_nhits",
+        "set_id": "set_14",
+        "x": 0.36321711905291837,
+        "y": 0.28
+      },
+      {
+        "forecaster": "nf_nhits",
+        "set_id": "set_15",
+        "x": 0.6437039327525902,
+        "y": 0.48
+      },
+      {
+        "forecaster": "nf_patchtst",
+        "set_id": "set_0",
+        "x": 0.3890537145573719,
+        "y": 0.12
+      },
+      {
+        "forecaster": "nf_patchtst",
+        "set_id": "set_1",
+        "x": 1.2760930091080696,
+        "y": 0.4
+      },
+      {
+        "forecaster": "nf_patchtst",
+        "set_id": "set_2",
+        "x": 0.4165600465310146,
+        "y": 0.2
+      },
+      {
+        "forecaster": "nf_patchtst",
+        "set_id": "set_3",
+        "x": 0.5046030296540862,
+        "y": 0.32
+      },
+      {
+        "forecaster": "nf_patchtst",
+        "set_id": "set_4",
+        "x": 0.4370963261301266,
+        "y": 0.28
+      },
+      {
+        "forecaster": "nf_patchtst",
+        "set_id": "set_5",
+        "x": 0.5356057857837845,
+        "y": 0.36
+      },
+      {
+        "forecaster": "nf_patchtst",
+        "set_id": "set_6",
+        "x": 0.5121194351057292,
+        "y": 0.24
+      },
+      {
+        "forecaster": "nf_patchtst",
+        "set_id": "set_7",
+        "x": 0.5115408571806248,
+        "y": 0.36
+      },
+      {
+        "forecaster": "nf_patchtst",
+        "set_id": "set_8",
+        "x": 0.5714400363649283,
+        "y": 0.36
+      },
+      {
+        "forecaster": "nf_patchtst",
+        "set_id": "set_9",
+        "x": 0.5216204658177439,
+        "y": 0.52
+      },
+      {
+        "forecaster": "nf_patchtst",
+        "set_id": "set_10",
+        "x": 0.5482339943041185,
+        "y": 0.4
+      },
+      {
+        "forecaster": "nf_patchtst",
+        "set_id": "set_11",
+        "x": 0.5920707427112583,
+        "y": 0.32
+      },
+      {
+        "forecaster": "nf_patchtst",
+        "set_id": "set_12",
+        "x": 0.37853770297416633,
+        "y": 0.24
+      },
+      {
+        "forecaster": "nf_patchtst",
+        "set_id": "set_13",
+        "x": 0.3713181019891029,
+        "y": 0.24
+      },
+      {
+        "forecaster": "nf_patchtst",
+        "set_id": "set_14",
+        "x": 0.3053252253290902,
+        "y": 0.32
+      },
+      {
+        "forecaster": "nf_patchtst",
+        "set_id": "set_15",
+        "x": 0.7627562546459292,
+        "y": 0.4
+      },
+      {
+        "forecaster": "nf_deepar",
+        "set_id": "set_0",
+        "x": 0.46697942129468695,
+        "y": 0.08
+      },
+      {
+        "forecaster": "nf_deepar",
+        "set_id": "set_1",
+        "x": 1.0733742783322404,
+        "y": 0.28
+      },
+      {
+        "forecaster": "nf_deepar",
+        "set_id": "set_2",
+        "x": 0.7859914222230857,
+        "y": 0.24
+      },
+      {
+        "forecaster": "nf_deepar",
+        "set_id": "set_3",
+        "x": 0.7418653388120112,
+        "y": 0.44
+      },
+      {
+        "forecaster": "nf_deepar",
+        "set_id": "set_4",
+        "x": 0.6965306998142854,
+        "y": 0.24
+      },
+      {
+        "forecaster": "nf_deepar",
+        "set_id": "set_5",
+        "x": 0.5164234317370601,
+        "y": 0.36
+      },
+      {
+        "forecaster": "nf_deepar",
+        "set_id": "set_6",
+        "x": 0.5499837405768482,
+        "y": 0.48
+      },
+      {
+        "forecaster": "nf_deepar",
+        "set_id": "set_7",
+        "x": 0.7032814424993706,
+        "y": 0.44
+      },
+      {
+        "forecaster": "nf_deepar",
+        "set_id": "set_8",
+        "x": 0.6249049773602264,
+        "y": 0.24
+      },
+      {
+        "forecaster": "nf_deepar",
+        "set_id": "set_9",
+        "x": 0.6764500930977994,
+        "y": 0.2
+      },
+      {
+        "forecaster": "nf_deepar",
+        "set_id": "set_10",
+        "x": 0.7119088185050612,
+        "y": 0.2
+      },
+      {
+        "forecaster": "nf_deepar",
+        "set_id": "set_11",
+        "x": 0.5517106265316517,
+        "y": 0.36
+      },
+      {
+        "forecaster": "nf_deepar",
+        "set_id": "set_12",
+        "x": 0.4759782313524771,
+        "y": 0.32
+      },
+      {
+        "forecaster": "nf_deepar",
+        "set_id": "set_13",
+        "x": 0.5443329695726654,
+        "y": 0.2
+      },
+      {
+        "forecaster": "nf_deepar",
+        "set_id": "set_14",
+        "x": 0.3344189467783952,
+        "y": 0.28
+      },
+      {
+        "forecaster": "nf_deepar",
+        "set_id": "set_15",
+        "x": 0.5640126819521408,
+        "y": 0.32
+      }
+    ],
+    "n": 160,
+    "pearson": 0.13970461303344914,
+    "spearman": 0.15844807332220986,
+    "ols_slope": 0.05772156523965637,
+    "ols_intercept": 0.25881680841664617
+  }
+}

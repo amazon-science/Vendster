@@ -1,0 +1,913 @@
+{
+  "n_sets": 16,
+  "aggregate": {
+    "no_forecast": {
+      "mean_attainment": 0.20750000000000002,
+      "sd_across_sets": 0.06514407110397692,
+      "n_sets": 16
+    },
+    "bias_m20": {
+      "mean_attainment": 0.30500000000000005,
+      "sd_across_sets": 0.09367496997597598,
+      "n_sets": 16
+    },
+    "bias_m15": {
+      "mean_attainment": 0.275,
+      "sd_across_sets": 0.12237238250520417,
+      "n_sets": 16
+    },
+    "bias_m10": {
+      "mean_attainment": 0.29500000000000004,
+      "sd_across_sets": 0.11213830746002902,
+      "n_sets": 16
+    },
+    "bias_m05": {
+      "mean_attainment": 0.3125,
+      "sd_across_sets": 0.08272696053887149,
+      "n_sets": 16
+    },
+    "bias_p05": {
+      "mean_attainment": 0.3075,
+      "sd_across_sets": 0.09666307464590602,
+      "n_sets": 16
+    },
+    "bias_p10": {
+      "mean_attainment": 0.32499999999999996,
+      "sd_across_sets": 0.10380269746013346,
+      "n_sets": 16
+    },
+    "bias_p15": {
+      "mean_attainment": 0.2775,
+      "sd_across_sets": 0.09107002800043491,
+      "n_sets": 16
+    },
+    "bias_p20": {
+      "mean_attainment": 0.31,
+      "sd_across_sets": 0.10246950765959599,
+      "n_sets": 16
+    },
+    "unbiased": {
+      "mean_attainment": 0.3575,
+      "sd_across_sets": 0.09324028099485758,
+      "n_sets": 16
+    }
+  },
+  "per_set": [
+    {
+      "basket": [
+        "FOODS_3_252_CA_4",
+        "FOODS_3_473_TX_2",
+        "FOODS_3_668_CA_3",
+        "FOODS_3_080_CA_4",
+        "FOODS_3_694_TX_2"
+      ],
+      "target": 1152.00785194409,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.52,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.2,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_668_CA_2",
+        "HOUSEHOLD_1_247_TX_2",
+        "FOODS_3_080_WI_3",
+        "FOODS_3_080_CA_3",
+        "FOODS_3_080_CA_1"
+      ],
+      "target": 913.4124962662057,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.28,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_473_TX_3",
+        "FOODS_3_389_WI_3",
+        "FOODS_3_495_TX_2",
+        "HOUSEHOLD_1_247_TX_2",
+        "FOODS_3_252_TX_2"
+      ],
+      "target": 1551.008467953846,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.36,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_042_TX_1",
+        "FOODS_3_042_WI_3",
+        "FOODS_3_473_TX_1",
+        "FOODS_3_377_CA_4",
+        "FOODS_2_347_CA_3"
+      ],
+      "target": 858.5604645195543,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.48,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.28,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_080_WI_1",
+        "FOODS_3_377_TX_1",
+        "FOODS_3_252_TX_2",
+        "FOODS_3_534_CA_1",
+        "FOODS_3_080_TX_2"
+      ],
+      "target": 2109.879282531637,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.52,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.32,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_756_WI_3",
+        "FOODS_3_042_TX_1",
+        "FOODS_3_756_CA_4",
+        "FOODS_3_407_CA_1",
+        "HOUSEHOLD_1_516_CA_3"
+      ],
+      "target": 755.5812533735208,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.52,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_252_CA_3",
+        "FOODS_3_586_TX_1",
+        "FOODS_3_226_WI_3",
+        "FOODS_3_407_CA_3",
+        "FOODS_1_085_CA_2"
+      ],
+      "target": 2766.2016924323902,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.48,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_495_TX_2",
+        "FOODS_3_473_TX_2",
+        "FOODS_3_127_CA_3",
+        "FOODS_3_756_CA_4",
+        "FOODS_3_473_WI_3"
+      ],
+      "target": 956.3109098147922,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.28,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_473_CA_1",
+        "FOODS_3_458_WI_2",
+        "FOODS_3_228_CA_3",
+        "HOUSEHOLD_1_118_TX_3",
+        "FOODS_3_458_WI_3"
+      ],
+      "target": 992.4388417550219,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.48,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_473_CA_3",
+        "FOODS_3_407_CA_3",
+        "FOODS_3_586_WI_1",
+        "FOODS_3_226_TX_3",
+        "FOODS_3_228_CA_2"
+      ],
+      "target": 1044.8521235101668,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.2,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_477_TX_3",
+        "FOODS_3_495_TX_2",
+        "HOUSEHOLD_1_118_TX_2",
+        "FOODS_3_714_CA_3",
+        "FOODS_3_694_WI_2"
+      ],
+      "target": 1328.4089720651843,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.36,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "HOUSEHOLD_1_251_CA_3",
+        "FOODS_3_714_TX_3",
+        "FOODS_3_694_TX_2",
+        "FOODS_3_668_CA_4",
+        "HOUSEHOLD_1_198_CA_3"
+      ],
+      "target": 951.6190381648722,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.4,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.44,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_555_CA_2",
+        "FOODS_3_586_CA_4",
+        "HOUSEHOLD_1_251_CA_3",
+        "FOODS_3_226_WI_2",
+        "HOBBIES_1_254_CA_3"
+      ],
+      "target": 1458.306214679643,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.36,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.12,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.36,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_586_CA_4",
+        "FOODS_3_694_TX_2",
+        "HOUSEHOLD_1_198_WI_1",
+        "FOODS_3_252_TX_3",
+        "FOODS_3_407_CA_3"
+      ],
+      "target": 1563.6109986200313,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.2,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.32,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.36,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_586_CA_4",
+        "FOODS_3_252_TX_1",
+        "HOUSEHOLD_1_251_CA_3",
+        "FOODS_3_534_CA_1",
+        "FOODS_3_458_WI_3"
+      ],
+      "target": 1421.0117806116114,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.52,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.28,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.16,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.36,
+          "n": 25
+        }
+      }
+    },
+    {
+      "basket": [
+        "FOODS_3_694_WI_1",
+        "FOODS_3_668_TX_2",
+        "FOODS_3_377_CA_3",
+        "HOUSEHOLD_1_251_CA_3",
+        "HOUSEHOLD_1_198_CA_3"
+      ],
+      "target": 814.8537348440981,
+      "conditions": {
+        "no_forecast": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m20": {
+          "attainment": 0.56,
+          "n": 25
+        },
+        "bias_m15": {
+          "attainment": 0.6,
+          "n": 25
+        },
+        "bias_m10": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_m05": {
+          "attainment": 0.24,
+          "n": 25
+        },
+        "bias_p05": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "bias_p10": {
+          "attainment": 0.6,
+          "n": 25
+        },
+        "bias_p15": {
+          "attainment": 0.48,
+          "n": 25
+        },
+        "bias_p20": {
+          "attainment": 0.44,
+          "n": 25
+        },
+        "unbiased": {
+          "attainment": 0.44,
+          "n": 25
+        }
+      }
+    }
+  ],
+  "checkpoint": {
+    "baseline_attainment": 0.20750000000000002,
+    "bracket_spread": 0.14999999999999997,
+    "passed": false,
+    "band": [
+      0.3,
+      0.7
+    ],
+    "min_spread": 0.25
+  },
+  "manifest": {
+    "git_sha": "692269a24c03ba67a82f82aacd14919945ef9e36",
+    "timestamp_utc": "2026-09-02T09:37:38.188171+00:00",
+    "python": "3.12.13",
+    "model": "buyer=deepseek.v3.2;vendor=deepseek.v3.2",
+    "note": "LLM episodes are NOT bit-reproducible (Bedrock has no seed); the reproducibility contract is the frozen target + seeded DGP + archived transcripts.",
+    "kind": "paired_experiment",
+    "seed": 1,
+    "n_sets": 16,
+    "episodes_per_condition": 25,
+    "target_mode": "analytic",
+    "target_percentile": 80.0,
+    "ref_draws": 2000
+  }
+}

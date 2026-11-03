@@ -1,0 +1,245 @@
+\documentclass{article}
+\usepackage[dblblindworkshop,final]{neurips_2026}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{nicefrac}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\scriptsize,breaklines=true,columns=fullflexible,
+keepspaces=true,frame=single,framesep=3pt,xleftmargin=2pt,aboveskip=4pt,belowskip=2pt}
+\usepackage{makecell}
+\usepackage{multirow}
+
+\title{Vendster: An Evaluation Arena to Investigate How Forecasting Tool Quality
+Affects LLM Agent Behaviors in Buyer--Vendor Negotiation}
+
+\workshoptitle{Foundation Models for Temporal Systems (FMTS) @ NeurIPS 2026}
+
+\author{%
+  Charin Polpanumas \\
+  Amazon, Japan \\
+  \texttt{charipol@amazon.com}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Time-series forecasters are ranked almost entirely by accuracy metrics, but a forecast's decision value, its effect on the downstream decision, need not track accuracy and is rarely measured. This problem compounds as large language model (LLM) agents increasingly consume forecasters as tools, mediating them through stochastic, opaque policies. We present \textbf{Vendster}, an evaluation arena measuring how a forecaster's bias and prediction-interval width change the outcome of a buyer--vendor discount negotiation between two LLM agents. In the reference instance \textbf{Vendster-M5}, sampling base demand patterns from the M5 dataset, we evaluate two frontier-closed LLM families (Claude Opus 4.6 and GPT-5.6 Sol) and two open ones (DeepSeek-V3.2 and Qwen3-235B-A22B). Model-generated forecasts raise sales target attainment by up to $+17$ percentage points ($p<0.001$), yet standard forecast evaluation metrics such as relWQL and MASE \emph{do not} predict negotiation outcomes at a statistically significant level. To isolate the causal structure, we substitute in synthetic forecasts with controlled bias and interval width. Under-prediction bias significantly improves outcomes for agents that react more to the forecasts---dose-response slopes $-0.387$ and $-0.416$ ($p<0.001$). Interval width has no statistically significant effect at zero bias. These findings indicate that the direction of forecast bias and agent forecast-reactivity are more strongly associated with downstream outcomes than forecast accuracy. Vendster is fully customizable and released under CC BY-NC 4.0 at \url{https://github.com/amazon-science/Vendster}.
+\end{abstract}
+
+\section{Introduction}
+
+\paragraph{Forecast evaluation metrics do not necessarily translate to decision value.} Time-series forecasting has progressed from statistical and machine-learning methods to deep learning and foundation models \citep{petropoulos2020simple,ke2017lightgbm,challu2023nhits,nie2022time,salinas2020deepar,zeng2023transformers,ansari2024chronos,ansari2025chronos,das2023decoder,woo2024unified}, ranked almost entirely by accuracy metrics on public leaderboards and competitions \citep{godahewa2021monash,aksu2024gift,shchur2025fev,qiao2026s,makridakis2022m5}. Yet a forecast's \emph{decision value}---its downstream benefit when it informs a decision \citep{murphy1993good,zhang2024toward}---need not track those metrics \citep{cenesizoglu2012return,zhang2025decision,vancsura2026beyond}. Decision-focused learning trains against the downstream objective directly \citep{wilder2019melding,elmachtoub2022smart,mandi2024decision,donti2017task}, but decision value is task-dependent and costly to elicit, so it is rarely reported and the gap between how forecasters are scored and how they are used stays largely unexamined.
+
+\paragraph{LLM agents make the gap urgent and their use of information is idiosyncratic.} The gap is pressing as LLM agents are increasingly deployed as autonomous economic actors that consume forecasters as tools \citep{hadfield20265,saha2025large}; building on alternating-offers bargaining \citep{rubinstein1982perfect} and real-market evidence \citep{backus2020sequential}, a fast-growing literature evaluates LLMs as negotiators and economic agents \citep{xia2024measuring,bianchi2024well,abdelnabi2024cooperation,yao2025spin,wang2025debt,horton2023large}. Unlike a fixed decision rule, an LLM mediates a forecast through a stochastic, opaque policy with its own systemic biases \citep{taubenfeld2024systematic}---anchoring on \citep{jones2022capturing}, deferring sycophantically to \citep{sharma2024towards}, or miscalibrated about \citep{kadavath2022language} its inputs---so appropriate reliance is far from guaranteed \citep{schemmer2023appropriate}. A complementary, opposite line uses LLM reasoning to \emph{improve} forecasts \citep{ahamed2026stride,liao2026bridging}; we study the reverse: how a forecast propagates through an LLM agent's decisions.
+
+\paragraph{Contributions.}
+We propose \textbf{Vendster}, an arena in which two LLM agents negotiate promotional discounts while the Buyer privately consumes a demand forecast, so a forecaster's \emph{bias} and \emph{prediction-interval width} can be varied with the data-generating process, action space, and negotiation held fixed; it is customizable in objectives, demand sources, elasticities, and model harnesses. Across four frontier LLM families, model-generated forecasts improve sales-target attainment, yet standard forecast-evaluation metrics do \emph{not} predict downstream outcomes. A synthetic bias\,$\times$\,interval-width perturbation grid identifies bias direction as the causal lever, but only for the frontier-closed models. Probing further, we posit \emph{forecast-reactivity}---how strongly an agent translates a forecast into behavior---as a mediator between a forecast and decision quality.
+
+\section{The Vendster Arena}
+
+\paragraph{Negotiation task.} In each episode a \textbf{Buyer} and a \textbf{Vendor}, both LLM agents, negotiate promotional discounts over a basket of five products for a single sales event, alternating structured actions---a per-product discount vector, or accepting/rejecting the standing proposal---for up to a fixed number of turns, with the deal realized once upon agreement. Information is asymmetric: the Buyer has a sales target and privately sees a demand forecast for every product at every discount level, while the Vendor privately knows per-product margins---deliberately spanning \emph{compatible}, \emph{integrative}, and \emph{distributive} structures so any five-product basket is worth negotiating (some products win--win, others closer to zero-sum). Both see a shared history of past events. Appendix~\ref{app:transcript} reproduces complete example negotiations, including the private context each agent receives.
+
+\paragraph{Demand realization process.} Realized demand follows a constant-elasticity response, $\text{Units}=\text{Base}\cdot(1-\text{Discount})^{\beta}$, drawn once per product per episode, with a single elasticity $\beta=-2.6$ (the cross-category meta-analytic mean \citep{bijmolt2005new}) and base demand sampled from stable-price M5 items \citep{makridakis2022m5}. The Buyer sees the forecast as a point estimate with an 80\% prediction interval at each discount plus a three-event predicted-versus-actual track record; we withhold explicit forecast-evaluation metrics, so reliability must be inferred as it would be in practice. This M5-grounded reference instance, \textbf{Vendster-M5}, is specified in full in Appendix~\ref{app:setup}.
+
+\paragraph{Model-based and Synthetic Forecasters.} Vendster couples two forecast sources. The first is ten \emph{model-based forecasters}---statistical \citep{petropoulos2020simple} (Seasonal-Naive, AutoETS, AutoTheta), gradient-boosted \citep{ke2017lightgbm}, deep learning (N-HiTS \citep{challu2023nhits}, PatchTST \citep{nie2022time}, DeepAR \citep{salinas2020deepar}), and foundation (Chronos-2 \citep{ansari2025chronos}, Chronos-Bolt \citep{ansari2024chronos}, TimesFM \citep{das2023decoder})---each trained under a leakage-safe temporal split, with its own bias, calibration, and quality (Table~\ref{tab:quality}). The second is a \emph{synthetic} perturbation grid that scales true expected demand by a prescribed log-bias and interval-width factor, giving independent, causal control over the two error axes. Together they define 26 conditions: a no-forecast control, the 10 model forecasters, and a 15-cell grid---an unbiased oracle, a signed \emph{log}-bias ladder ($b\in\pm\{0.05,0.10,0.15,0.20\}$; the forecast is true demand scaled by $e^{b}$, roughly $\pm5\%$ to $\pm22\%$) at calibrated width, and an interval-width ladder ($\times\{0.25,0.5,0.75,1.5,2,3\}$ at zero bias).
+
+\section{Experimental Setup}
+
+\paragraph{Hypotheses.} The outcome is sales target attainment---whether realized sales meet the Buyer's per-basket target, a challenging threshold fixed in advance by an effect-blind rule (Appendix~\ref{app:setup}). Suffixes denote evidence type: \emph{o} for the observational model-based forecasters, \emph{c} for the synthetic perturbation grid.
+
+\begin{enumerate}[left=0pt]
+\item \textbf{H0:} Buyer with a model-generated forecast will have higher sales target attainment rate than those without one.
+\item \textbf{H1o/c:} Under-forecasting will incentivize Buyer to negotiate more assertively, leading to higher sales target attainment rate; and vice versa for over-forecasting. 
+\item \textbf{H2o/c:} At zero bias, widening the prediction-interval width will lead to the forecast being perceived as inferior, resulting in lower sales target attainment rate; and vice versa for narrowing.
+\item \textbf{H3o:} Standard forecast-evaluation metrics---relWQL, MASE, MAPE, sMAPE, RMSE, and CRPS---will predict the sales target attainment rate.
+\end{enumerate}
+We additionally log negotiation behaviors---average first-offer discount rates, concession rates, agreed-discount rates, turns, and agreement rates---to trace the mechanism behind any outcome effect (see Table~\ref{tab:reactivity}).
+
+\paragraph{Pre-experiment Sizing.} We performed a simulation-based, a-priori power analysis to size the design to $K=16$ baskets and $m=25$ episodes (400 runs) per condition for a pre-specified minimum detectable effect (MDE) of $\delta=0.10$ attainment at significance level $\alpha=0.05$. See Table~\ref{tab:power} for details.
+
+\paragraph{Execution and Post-experiment Measurement.} We evaluate two frontier-closed families (Claude Opus 4.6 \citep{anthropic2026claudeopus46} and GPT-5.6 Sol \citep{openai2026gpt56sol}) and two open ones (DeepSeek-V3.2 \citep{liu2025deepseek} and Qwen3-235B-A22B \citep{yang2025qwen3}), each negotiating against itself as Buyer and Vendor. We test \textbf{H0} with a paired $t$-test on the per-basket difference in attainment between a Buyer with and without a forecast (averaged over the ten forecasters). \textbf{H1--H2} fit, per basket, one ordinary-least-squares slope of attainment on the perturbed or measured bias and interval width; \textbf{H3o} does the same with each forecast-evaluation metric. The 16 per-basket slopes are then tested against zero with a one-sample $t$-test---making the basket the unit of analysis, which controls for between-basket difficulty and the within-basket correlation that would otherwise inflate significance. We apply the Holm--Bonferroni correction within each hypothesis's four-model family; the resulting per-hypothesis effects with raw and Holm-corrected $p$-values are reported per model in Table~\ref{tab:crossmodel}.
+
+\section{Results}
+
+\paragraph{Model-based forecasters rank closely by forecast-evaluation metrics.} On a held-out test window, the model forecasters occupy a narrow, near-ideal band; for example, relWQL ranges only from $0.50$ to $0.69$ across the nine non-naive forecasters against the Seasonal-Naive floor of $1.00$. All are near-unbiased (mean log-bias in $[+0.01,+0.09]$), and 80\% coverage sits between $0.70$ and $0.94$ (Table~\ref{tab:quality}).
+
+\paragraph{Despite this, model-generated forecasts help Buyer agents achieve better outcomes.} Aggregated over the 10 forecasters, agents with any forecast beat the no-forecast baseline for all four families at a statistically significant level, adjusted for multiple comparisons (Table~\ref{tab:crossmodel}). This confirms \textbf{H0}.
+
+\paragraph{Forecast-evaluation metrics do not predict outcomes.} Regressing sales target attainment on each forecaster's measured forecast quality yields a null slope for every metric and model (Table~\ref{tab:robust}) after adjusting for multiple comparisons. This invalidates \textbf{H3o}, as forecast-evaluation metrics carry essentially no information about the downstream negotiation outcome, albeit within the narrow, near-ideal accuracy band these strong forecasters occupy.
+
+\paragraph{Under-prediction correlates with higher sales target attainment, but only for frontier-closed LLMs.} Varying bias and prediction-interval width independently on the synthetic grid isolates the cause (Table~\ref{tab:crossmodel} and Figure~\ref{fig:grid}). As forecasts shift from under- to over-prediction, bias moves attainment for the two frontier-closed models---dose-response slopes $-0.387$ (Opus) and $-0.416$ (GPT), both $p<0.001$ after adjusting for multiple comparisons---but not for the open pair, Qwen ($+0.001$) or DeepSeek ($+0.012$). This partly confirms \textbf{H1c}. As for the observational result regarding \textbf{H1o}, although both Opus and GPT have similarly sized coefficients in the same direction as their synthetic counterparts, only Opus's dose-response slope is statistically significant after adjustment. On the other hand, interval width has no significant effect at zero bias for any family, either with model-based or synthetic forecasts. This null result contradicts \textbf{H2o} and \textbf{H2c}.
+
+\paragraph{Forecast-reactivity, not the model being closed, explains the bias effect.} Probing the negotiation behavior behind the split between closed and open models (Table \ref{tab:reactivity}) shows that Opus and GPT translate the forecast into action. We perform the same OLS but with behavioral metrics---average first-offer discount, agreed discount, concession, number of turns, and agreement rate---as the dependent variables and synthetic log-bias as the independent variable. Opus and GPT have negative, multiplicity-adjusted, statistically significant slopes on first-offer discount and agreed discount. This suggests that under-prediction caused them to \emph{react} and negotiate more aggressively with steeper discounts. This behavioral shift is not seen in Qwen and DeepSeek. This \emph{forecast-reactivity}, how strongly an agent translates a forecast into behavior, determines whether the forecast's bias reaches the decision and ultimately the downstream outcome.
+
+\begin{table}[H]
+  \caption{Forecast effects by LLM. \emph{Forecast Uplift} is the H0 uplift in sales target attainment rate from model forecasts over Buyer agent with no forecast. \emph{Causal} columns are slopes on the varied bias/width grid; \emph{Observational} columns regress attainment on measured bias, width, and relWQL. Cells show effect $(\text{raw}\ p,\ \text{Holm}\ p)$; $^{*}$: Holm $p<0.05$ across the four LLMs.}
+  \label{tab:crossmodel}
+  \centering\small\setlength{\tabcolsep}{4pt}
+  \resizebox{\linewidth}{!}{%
+  \begin{tabular}{lccccccc}
+    \toprule
+    & & & \multicolumn{2}{c}{Causal} & \multicolumn{3}{c}{Observational} \\
+    \cmidrule(lr){4-5}\cmidrule(lr){6-8}
+    LLM & No Forecast & Forecast Uplift & Bias & Width & Bias & Width & relWQL \\
+    \midrule
+    Opus     & 0.24 & \makecell{$+0.12^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$-0.387^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$+0.016$\\{\scriptsize(.225,\,.899)}} & \makecell{$-0.466^{*}$\\{\scriptsize(.009,\,.034)}} & \makecell{$+0.000$\\{\scriptsize(.904,\,1.000)}} & \makecell{$-0.021$\\{\scriptsize(.703,\,1.000)}} \\
+    GPT      & 0.25 & \makecell{$+0.17^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$-0.416^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$+0.002$\\{\scriptsize(.882,\,1.000)}} & \makecell{$-0.408$\\{\scriptsize(.057,\,.171)}} & \makecell{$-0.002$\\{\scriptsize(.053,\,.211)}} & \makecell{$-0.126$\\{\scriptsize(.016,\,.062)}} \\
+    Qwen     & 0.11 & \makecell{$+0.11^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$+0.001$\\{\scriptsize(.988,\,1.000)}} & \makecell{$-0.003$\\{\scriptsize(.796,\,1.000)}} & \makecell{$-0.195$\\{\scriptsize(.266,\,.510)}} & \makecell{$+0.001$\\{\scriptsize(.423,\,1.000)}} & \makecell{$+0.009$\\{\scriptsize(.835,\,1.000)}} \\
+    DeepSeek & 0.22 & \makecell{$+0.08^{*}$\\{\scriptsize(.001,\,.001)}} & \makecell{$+0.012$\\{\scriptsize(.855,\,1.000)}} & \makecell{$-0.002$\\{\scriptsize(.867,\,1.000)}} & \makecell{$-0.182$\\{\scriptsize(.255,\,.510)}} & \makecell{$+0.001$\\{\scriptsize(.574,\,1.000)}} & \makecell{$+0.044$\\{\scriptsize(.362,\,1.000)}} \\
+    \bottomrule
+  \end{tabular}}
+\end{table}
+\section{Discussions}
+
+\paragraph{Implications.} In our buyer-vendor negotiation scenario, the one-size-fits-all forecast evaluation metrics on a leaderboard do not predict decision value, whereas task-specific ones like the direction of bias and forecast-reactivity of the agent do. We argue that forecasters destined for agentic pipelines should be evaluated in a decision-grounded, task-specific manner, reporting the properties that actually move the objective and accounting for the consuming agent's reactivity rather than by leaderboard accuracy alone.
+
+\paragraph{Limitations.} Several choices bound our conclusions. First, they rest on one reference instance---a single elasticity ($\beta=-2.6$), one source of demand patterns (M5), and a single-event negotiation---so generality to other elasticities, domains, and multi-period or multi-issue settings is untested. Second, because the operating point of sales target attainment is calibrated on the held-out Sonnet 4.6 agent, no-forecast attainment varies across LLMs ($0.11$--$0.25$), making the uplifts incomparable. Third, LLM inference is not seedable, so the archived episode records are our only exactly reproducible records. Besides addressing these limitations, new directions include investigating the effect of using strong-vs-weak LLMs for each role (preliminary exploration in Figure \ref{fig:rolecross}), giving agents personas, and determining which pieces of information about the forecasters and the situations to provide to the agents to maximize decision value.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\appendix
+\section{Appendix}
+
+\subsection{Figures and Tables}
+
+\begin{table}[H]
+  \caption{Forecast quality $\to$ sales target attainment: per-basket slope by metric $\times$ model, cell $=$ slope $(\text{raw}\ p,\ \text{Holm}\ p)$; $^{*}$: Holm $p<0.05$.}
+  \label{tab:robust}
+  \centering\small
+  \begin{tabular}{lcccc}
+    \toprule
+    metric & Opus & GPT & Qwen & DeepSeek \\
+    \midrule
+    relWQL & \makecell{$-0.021$\\{\scriptsize(.703,\,1.000)}} & \makecell{$-0.126$\\{\scriptsize(.016,\,.062)}} & \makecell{$+0.009$\\{\scriptsize(.835,\,1.000)}} & \makecell{$+0.044$\\{\scriptsize(.362,\,1.000)}} \\
+    MASE   & \makecell{$-0.095$\\{\scriptsize(.362,\,1.000)}} & \makecell{$-0.194$\\{\scriptsize(.104,\,.415)}} & \makecell{$+0.005$\\{\scriptsize(.961,\,1.000)}} & \makecell{$+0.055$\\{\scriptsize(.510,\,1.000)}} \\
+    MAPE   & \makecell{$-0.156$\\{\scriptsize(.535,\,1.000)}} & \makecell{$-0.353$\\{\scriptsize(.261,\,.783)}} & \makecell{$+0.015$\\{\scriptsize(.953,\,1.000)}} & \makecell{$+0.308$\\{\scriptsize(.154,\,.616)}} \\
+    sMAPE  & \makecell{$-0.195$\\{\scriptsize(.598,\,1.000)}} & \makecell{$-0.408$\\{\scriptsize(.424,\,1.000)}} & \makecell{$+0.098$\\{\scriptsize(.765,\,1.000)}} & \makecell{$+0.387$\\{\scriptsize(.147,\,.590)}} \\
+    RMSE   & \makecell{$-0.003$\\{\scriptsize(.453,\,1.000)}} & \makecell{$-0.007$\\{\scriptsize(.122,\,.488)}} & \makecell{$+0.001$\\{\scriptsize(.854,\,1.000)}} & \makecell{$+0.003$\\{\scriptsize(.488,\,1.000)}} \\
+    CRPS   & \makecell{$-0.004$\\{\scriptsize(.477,\,1.000)}} & \makecell{$-0.011$\\{\scriptsize(.068,\,.270)}} & \makecell{$+0.003$\\{\scriptsize(.625,\,1.000)}} & \makecell{$+0.006$\\{\scriptsize(.363,\,1.000)}} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[H]
+  \caption{Forecast-reactivity behaviors. Columns are the logged negotiation behaviors: \emph{first-offer} (mean discount in the Buyer's opening proposal), \emph{agreed disc.} (mean discount at agreement), \emph{concession} (mean absolute change between a proposer's successive proposal means), \emph{turns} (turns to termination), and \emph{agreement} (deal rate). For each family, two rows: \emph{presence}---a behavior's uplift from \emph{having} a forecast---and \emph{bias slope}---its per-basket slope along the varied bias ladder. Cells show the statistic over $(\text{raw}\ p,\ \text{Holm}\ p)$; $^{*}$: Holm $p<0.05$.}
+  \label{tab:reactivity}
+  \centering\small\setlength{\tabcolsep}{5pt}
+  \begin{tabular}{llccccc}
+    \toprule
+    & & first-offer & agreed disc.\ & concession & turns & agreement \\
+    \midrule
+    \multirow{2}{*}{Opus} & presence   & \makecell{$+0.046^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$+0.030^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$+0.005^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$+1.03^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$+0.003$\\{\scriptsize(.333,\,.429)}} \\
+                          & bias slope & \makecell{$-0.101^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$-0.082^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$+0.002$\\{\scriptsize(.341,\,1.000)}} & \makecell{$-3.09^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$+0.002$\\{\scriptsize(.544,\,.928)}} \\
+    \cmidrule(lr){1-7}
+    \multirow{2}{*}{GPT} & presence   & \makecell{$+0.020^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$+0.053^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$-0.016^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$+6.61^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$-0.135^{*}$\\{\scriptsize(.000,\,.000)}} \\
+                         & bias slope & \makecell{$-0.139^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$-0.195^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$+0.047^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$-21.94^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$+0.926^{*}$\\{\scriptsize(.000,\,.000)}} \\
+    \cmidrule(lr){1-7}
+    \multirow{2}{*}{Qwen} & presence   & \makecell{$+0.105^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$+0.041^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$-0.003$\\{\scriptsize(.168,\,.168)}} & \makecell{$-1.68^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$+0.155^{*}$\\{\scriptsize(.000,\,.000)}} \\
+                          & bias slope & \makecell{$+0.026^{*}$\\{\scriptsize(.003,\,.007)}} & \makecell{$-0.004$\\{\scriptsize(.577,\,1.000)}} & \makecell{$-0.001$\\{\scriptsize(.639,\,1.000)}} & \makecell{$+0.08$\\{\scriptsize(.906,\,.906)}} & \makecell{$+0.038$\\{\scriptsize(.464,\,.928)}} \\
+    \cmidrule(lr){1-7}
+    \multirow{2}{*}{DeepSeek} & presence   & \makecell{$+0.044^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$+0.026^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$+0.002^{*}$\\{\scriptsize(.000,\,.000)}} & \makecell{$-0.08$\\{\scriptsize(.566,\,.566)}} & \makecell{$-0.009$\\{\scriptsize(.215,\,.429)}} \\
+                              & bias slope & \makecell{$+0.003$\\{\scriptsize(.455,\,.455)}} & \makecell{$-0.002$\\{\scriptsize(.551,\,1.000)}} & \makecell{$+0.001$\\{\scriptsize(.550,\,1.000)}} & \makecell{$-1.10^{*}$\\{\scriptsize(.007,\,.013)}} & \makecell{$+0.033$\\{\scriptsize(.075,\,.225)}} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.92\linewidth]{perturbation_grid.png}
+  \caption{Sales target attainment against synthetically varied bias (top) and interval width (bottom), one column per model, with 95\% confidence intervals.}
+  \label{fig:grid}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.92\linewidth]{images/role_cross_heatmap.png}
+  \caption{Bias-attainment slope by using different LLMs for Buyers and Vendors; this suggests the slope is Buyer-dependent.}
+  \label{fig:rolecross}
+\end{figure}
+
+\subsection{Environment Setup---Vendster-M5}
+\label{app:setup}
+
+\paragraph{Negotiation protocol.} A Buyer and a Vendor alternate for up to $20$ turns, the Buyer opening. On each turn an agent emits one JSON action---either a \emph{proposal} giving a discount for every one of the five products (each at an allowed level in $\{0,5,10,15,20,25,30\}\%$) or a \emph{decision} to accept or reject the standing proposal. A malformed action is returned to the agent with the parse error for up to three retries. The episode ends when a decision accepts the active proposal (agreement) or the turn budget is exhausted (no deal); on agreement the event is realized once at month~4 under the demand realization process, and a no-deal episode yields zero sales. The action grammar is:
+\begin{lstlisting}
+proposal: {"type":"proposal","content":"<message>","proposal":{"<product_id>":0.10, ...}}
+decision: {"type":"decision","content":"<message>","decision":"accept"|"reject"}
+\end{lstlisting}
+
+\paragraph{Information structure.} Both agents see the product list (id, category, price) and a three-event history (units and revenue; the Vendor additionally sees per-line profit). Only the Buyer sees the demand signal---a month-4 point forecast with an $80\%$ prediction interval at each discount level, plus a three-event predicted-vs-actual track record---and only the Vendor sees unit costs and margins. Offline error metrics are never shown, so the forecast perturbation cannot be trivially inverted. The example negotiations below reproduce these private blocks verbatim for real episodes.
+
+\paragraph{Demand realization process.} Realized demand follows a constant-elasticity response $\text{Units}(d)=\text{Base}\cdot(1-d)^{\beta}\cdot\varepsilon$ with a single multiplicative draw $\varepsilon\sim\text{LogNormal}(-s^2/2,\,s^2)$ per product per episode (mean-preserving), where $s$ is set from each product's coefficient of variation. We use one elasticity $\beta=-2.6$ for all products---the cross-category mean of the meta-analysis \citep{bijmolt2005new}---and ground base demand in M5.
+
+\paragraph{M5 grounding.} From the public M5 dataset~\citep{makridakis2022m5} we aggregate daily sales to weekly series per (store, item), keep stable-price items (sell-price coefficient of variation below $5\%$) that sold at least five units in every week, and set each product's price to its median sell price. A basket is five such items drawn without replacement; unit costs follow a fixed 2/2/1 mix ($\{0.20,0.20,0.45,0.45,0.70\}$ of price, shuffled across the basket) that gives three margin regimes and makes the basket \emph{mixed-motive}: two low-cost, high-margin \emph{compatible} products, on which a discount barely dents Vendor profit so both sides gain from the added volume; two mid-margin \emph{integrative} products with genuine trade-offs; and one high-cost, low-margin \emph{distributive} product, on which a discount is close to a zero-sum transfer from Vendor to Buyer. A homogeneous basket would be trivially cooperative or purely adversarial; the mix ensures neither, so the negotiation exercises the full range of bargaining structure.
+
+\paragraph{Operating point of the sales target attainment.} Each basket's Buyer target is the $80$th percentile of that basket's total-sales distribution under a uniform-random discount reference policy, chosen by an effect-blind rule: the percentile at which a no-forecast Claude Sonnet 4.6 agent's attainment is nearest $0.30$. We perform a sweep along 50th to 90th percentiles of the sales distribution as shown in Figure~\ref{fig:operating}. Notice that we did NOT choose the percentile where the difference between no-forecast attainment rate and unbiased attainment rate is the highest, which would unreasonably favor our hypotheses.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\linewidth]{arena_operating_point.png}
+  \caption{Operating-point selection using the no-forecast Sonnet 4.6 agent, , with 95\% confidence intervals.}
+  \label{fig:operating}
+\end{figure}
+
+\begin{table}[H]
+  \caption{A-priori power at the locked design ($K{=}16$, $m{=}25$, $\alpha{=}0.05$) for the $0.10$-attainment MDE. \emph{Power}: probability of detecting a $0.10$ effect; \emph{floor}: minimum detectable effect at $80\%$ power. H0 is sized directly to the MDE; slope power is range-independent, so the observational tests size despite the forecasters' tight spread. Monte-Carlo false-positive rate $\approx0.05$. Reproduced by \texttt{script/power\_analysis.py}.}
+  \label{tab:power}
+  \centering\small
+  \begin{tabular}{llcc}
+    \toprule
+    Hypothesis & effect tested & power ($\Delta{=}0.10$) & floor (attain) \\
+    \midrule
+    H0  & aggregate forecast vs \texttt{no\_forecast} & 0.81 & --- \\
+    H1c & bias, causal grid                           & 0.98 & 0.070 \\
+    H2c & width, causal grid                          & 0.94 & 0.080 \\
+    H1o & bias, observational                         & 0.88 & 0.089 \\
+    H2o & width, observational                        & 0.97 & 0.072 \\
+    H3o & quality (relWQL), observational             & 0.97 & 0.074 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{LLM harness.} Agents are served through Amazon Bedrock at temperature $0$ wherever the model accepts a temperature setting (GPT-5.6 Sol rejects it and runs at its provider default), with bounded adaptive retries; the exact Bedrock model IDs (region \texttt{us-west-2}) are \texttt{us.anthropic.claude-opus-4-6-v1}, \texttt{us.openai.gpt-5.6-sol}, \texttt{deepseek.v3.2}, and \texttt{qwen.qwen3-235b-a22b-2507-v1:0} (with \texttt{us.anthropic.claude-sonnet-4-6} held out for calibration), and all results are conditioned on these snapshots. Each response is parsed from a fenced JSON block and validated before it enters the log. Since Bedrock is not seedable, the archived episode records are our only exactly reproducible records.
+
+\begin{table}[H]
+  \caption{Forecast-evaluation metrics on the held-out event. relWQL normalized to Seasonal-Naive ($=1.0$); for accuracy metrics $\downarrow$ = better, \textbf{best} bold, \underline{second} underlined; cov@80 and bias(log) $\overline{\log(\hat{y}/y)}$ are calibration diagnostics (not ranked).}
+  \label{tab:quality}
+  \centering\footnotesize
+  \begin{tabular}{lcccccccc}
+    \toprule
+    & \multicolumn{6}{c}{Accuracy \& scoring} & \multicolumn{2}{c}{Calibration} \\
+    \cmidrule(lr){2-7}\cmidrule(lr){8-9}
+    Forecaster & relWQL$\downarrow$ & MASE$\downarrow$ & MAPE$\downarrow$ & sMAPE$\downarrow$ & RMSE$\downarrow$ & CRPS$\downarrow$ & cov@80 & bias(log) \\
+    \midrule
+    \texttt{seasonal\_naive}  & 1.000 & 0.787 & 0.295 & 0.263 & 35.8 & 14.54 & 0.86 & $+0.027$ \\
+    \texttt{auto\_ets}        & 0.520 & 0.448 & 0.181 & 0.157 & 15.8 & 7.55  & 0.85 & $+0.052$ \\
+    \texttt{auto\_theta}      & 0.528 & 0.463 & 0.181 & 0.160 & 15.9 & 7.67  & 0.89 & $+0.045$ \\
+    \texttt{lightgbm\_global} & 0.689 & 0.487 & 0.196 & 0.167 & 19.9 & 10.01 & 0.70 & $+0.085$ \\
+    \texttt{chronos2}         & \underline{0.506} & \underline{0.439} & \underline{0.175} & \underline{0.156} & \underline{15.5} & \underline{7.36}  & 0.86 & $+0.039$ \\
+    \texttt{chronos\_bolt}    & 0.528 & 0.455 & 0.181 & 0.157 & 16.5 & 7.67  & 0.85 & $+0.055$ \\
+    \texttt{timesfm25}        & \textbf{0.500} & \textbf{0.437} & \textbf{0.174} & \textbf{0.153} & \textbf{14.9} & \textbf{7.27}  & 0.88 & $+0.049$ \\
+    \texttt{nf\_nhits}        & 0.529 & 0.447 & \textbf{0.174} & 0.159 & 16.5 & 7.69  & 0.81 & $+0.026$ \\
+    \texttt{nf\_patchtst}     & 0.530 & 0.445 & 0.184 & 0.159 & 16.3 & 7.71  & 0.81 & $+0.052$ \\
+    \texttt{nf\_deepar}       & 0.605 & 0.450 & \textbf{0.174} & 0.158 & 17.7 & 8.80  & 0.94 & $+0.013$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+\input{appendix_transcripts.tex}
+
+\input{checklist.tex}
+
+\end{document}
